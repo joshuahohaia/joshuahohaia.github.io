@@ -48,11 +48,11 @@ body {
     max-width: 100%;
 }
 
-@media (max-width: 343px) {
+@media (max-width: 345px) {
     .ascii-small { display: block; }
 }
 
-@media (min-width: 344px) and (max-width: 564px) {
+@media (min-width: 346px) and (max-width: 564px) {
     .ascii-medium { display: block; }
 }
 
