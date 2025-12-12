@@ -38,13 +38,14 @@ body {
     right: 0;
     bottom: 0;
     border: 0.1px solid var(--clr-border);
-    z-index: -1;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .content {
     display: block;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 .ascii-full, .ascii-small {
@@ -52,6 +53,7 @@ body {
     text-align: center;
     color: var(--clr-primary-txt);
     position: relative;
+    z-index: -1;
 }
 
 /* Full ASCII art for large screens */
