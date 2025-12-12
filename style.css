@@ -37,30 +37,38 @@ body {
     z-index: 0;
 }
 
-.ascii-full, .ascii-small {
+.ascii-full, .ascii-small, .ascii-medium {
     color: var(--clr-primary-txt);
     display: none; /* Hide all by default */
     position: relative;
-    text-align: center;
+    text-align: start;
 }
 
 /* Full ASCII art for large screens */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 601px) {
     .ascii-full {
         display: block;
         font-size: 0.8rem;
     }
 }
 
+/* Full ASCII art for medium screens */
+@media (min-width: 361px) and (max-width: 600px) {
+    .ascii-medium {
+        display: block;
+        font-size: 0.8rem;
+    }
+}
+
+
+
 /* Small ASCII art for small screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 360px) {
     #main-container {
-        padding: 2rem;
+        border: 0.1px solid var(--clr-border);
     }
     .ascii-small {
         display: block;
-        font-size: 1.2rem; /* Adjusted for better fit */
-        margin: 0 -2rem; /* Allow overflow */
     }
 }
 
