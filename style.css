@@ -4,11 +4,53 @@
 
 :root {
     --clr-blue: #58a6ff;
+    --clr-border: #e6edf3;
+    --clr-orange: #ec8e2c;
+    --clr-pink: #bc8cff;
+    --clr-primary-bg: #ffffff;
+    --clr-primary-txt: #24292f;
+}
+
+[data-theme="dark"] {
+    --clr-blue: #58a6ff;
     --clr-border: #8090a8;
     --clr-orange: #ec8e2c;
     --clr-pink: #bc8cff;
     --clr-primary-bg: #0d1117;
     --clr-primary-txt: #c9d1d9;
+}
+
+
+#theme-switch-container {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: auto;
+    font-size: 1.25rem;
+    color: var(--clr-primary-txt);
+    z-index: 1;
+}
+
+#theme-switch-checkbox {
+    display: none;
+}
+
+.theme-switch {
+    cursor: pointer;
+}
+
+#theme-switch-checkbox:checked + .theme-switch .light-mode {
+    display: none;
+}
+
+#theme-switch-checkbox:checked + .theme-switch .dark-mode {
+    display: inline;
+}
+.light-mode {
+    display: inline;
+}
+.dark-mode {
+    display: none;
 }
 
 html, body {
@@ -17,6 +59,7 @@ html, body {
     height: 100%;
     overflow-x: hidden;
 }
+
 
 body {
     display: flex;
@@ -28,6 +71,7 @@ body {
 }
 
 #main-container {
+    position: relative;
     border: 1px solid var(--clr-border);
     max-width: 800px;
     width: 100%;
