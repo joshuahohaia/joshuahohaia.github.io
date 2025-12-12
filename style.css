@@ -35,6 +35,7 @@
     transform: translateZ(0);
     pointer-events: none;
     mix-blend-mode: overlay;
+    -webkit-mix-blend-mode: overlay;
     opacity: 0.5;
     position: absolute;
     height: 100%;
