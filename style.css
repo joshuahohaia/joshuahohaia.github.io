@@ -1,7 +1,3 @@
-/* -------------------------------------------
-   Base resets & variables
-------------------------------------------- */
-
 * {
     box-sizing: border-box;
 }
@@ -15,6 +11,10 @@
     --clr-primary-txt: #c9d1d9;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
     margin: 0;
     padding: 1rem;
@@ -24,82 +24,56 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;       /* safer than height: 100vh */
+    min-height: 100vh;
 }
-
-/* -------------------------------------------
-   Container
-------------------------------------------- */
 
 #main-container {
-    border: 0.1px solid var(--clr-border);
+    border: 1px solid var(--clr-border);
     max-width: 800px;
-    padding: 2rem;
-    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: var(--clr-primary-bg);
 }
-
-/* -------------------------------------------
-   ASCII elements (default hidden)
-------------------------------------------- */
 
 .ascii-full,
 .ascii-medium,
 .ascii-small {
     display: none;
-    color: var(--clr-primary-txt);
-    text-align: start;
-    position: relative;
+    overflow-x: auto;
+    font-size: 0.75rem;
+    line-height: 1.1;
+    width: 100%;
+    max-width: 100%;
 }
 
-/* -------------------------------------------
-   Mobile-first breakpoints
-------------------------------------------- */
-
-/* Small screens: <= 230px */
-@media (max-width: 230px) {
+@media (max-width: 343px) {
     .ascii-small {
         display: block;
     }
 }
 
-/* Medium screens: 231px–600px */
-@media (min-width: 231px) and (max-width: 600px) {
+@media (min-width: 344px) and (max-width: 564px) {
     .ascii-medium {
         display: block;
-        font-size: 0.8rem;
     }
 }
 
-/* Large screens: >= 601px */
-@media (min-width: 601px) {
+@media (min-width: 565px) {
     .ascii-full {
         display: block;
-        font-size: 0.8rem;
     }
-}
-
-/* -------------------------------------------
-   Text
-------------------------------------------- */
-
-.text-container {
-    flex-grow: 1;
 }
 
 .text-output {
     margin: 0;
+    margin-top: 1rem;
     line-height: 1.5rem;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    word-break: break-word;
 }
 
-.text-blue {
-    color: var(--clr-blue);
-}
-
-.text-orange {
-    color: var(--clr-orange);
-}
+.text-blue { color: var(--clr-blue); }
+.text-orange { color: var(--clr-orange); }
 
 .text-output a {
     color: var(--clr-pink);
@@ -110,7 +84,6 @@ body {
     text-decoration: underline;
 }
 
-/* Cursor blink */
 .text-output::after {
     content: '_';
     color: var(--clr-pink);
