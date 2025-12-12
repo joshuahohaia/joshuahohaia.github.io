@@ -55,15 +55,15 @@ body {
    Mobile-first breakpoints
 ------------------------------------------- */
 
-/* Small screens: <= 360px */
-@media (max-width: 360px) {
+/* Small screens: <= 230px */
+@media (max-width: 230px) {
     .ascii-small {
         display: block;
     }
 }
 
-/* Medium screens: 361px–600px */
-@media (min-width: 361px) and (max-width: 600px) {
+/* Medium screens: 231px–600px */
+@media (min-width: 231px) and (max-width: 600px) {
     .ascii-medium {
         display: block;
         font-size: 0.8rem;
