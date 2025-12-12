@@ -61,10 +61,12 @@ body {
 @media (max-width: 345px) { .ascii-small { display: block; } }
 
 .terminal-icon {
-    display: inline-block;
-    vertical-align: top;
-    color: var(--clr-primary-txt);
     animation: blink 1s infinite;
+    color: var(--clr-primary-txt);
+    display: inline-block;
+    line-height: 1.1;
+    white-space: pre;
+    vertical-align: top;
 }
 
 .text-output {
