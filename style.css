@@ -32,32 +32,39 @@ body {
     max-width: 800px;
     width: 100%;
     margin: 1rem;
-    padding: 1.5rem;
+    padding: 0 1.5rem 1.5rem 1.5rem;
     background: var(--clr-primary-bg);
     overflow: hidden;
 }
 
-.ascii-full,
-.ascii-medium,
-.ascii-small {
-    display: none;
-    overflow-x: hidden;
+.ascii-container {
+    position: relative;
+    display: inline-block;
+}
+
+.ascii-banner {
     font-size: 0.75rem;
     line-height: 1.1;
-    width: 100%;
-    max-width: 100%;
 }
 
-@media (max-width: 345px) {
-    .ascii-small { display: block; }
+.ascii-line {
+    display: flex; 
 }
 
-@media (min-width: 346px) and (max-width: 564px) {
-    .ascii-medium { display: block; }
-}
+/* Responsive ASCII visibility */
+.ascii-full { display: none; }
+.ascii-medium { display: none; }
+.ascii-small { display: none; }
 
-@media (min-width: 565px) {
-    .ascii-full { display: block; }
+@media (min-width: 565px) { .ascii-full { display: block; } }
+@media (min-width: 346px) and (max-width: 564px) { .ascii-medium { display: block; } }
+@media (max-width: 345px) { .ascii-small { display: block; } }
+
+.terminal-icon {
+    display: inline-block;
+    vertical-align: top;
+    color: var(--clr-primary-txt);
+    animation: blink 1s infinite;
 }
 
 .text-output {
