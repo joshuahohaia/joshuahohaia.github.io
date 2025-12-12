@@ -9,6 +9,9 @@
     --clr-pink: #bc8cff;
     --clr-primary-bg: #ffffff;
     --clr-primary-txt: #24292f;
+    --crt-red: rgb(218, 49, 49);
+    --crt-green: rgb(112, 159, 115);
+    --crt-blue: rgb(40, 129, 206);
 }
 
 [data-theme="dark"] {
@@ -19,6 +22,73 @@
     --clr-primary-bg: #0d1117;
     --clr-primary-txt: #c9d1d9;
 }
+
+.crt {
+  text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.2),
+    -1px -1px rgba(0, 255, 255, 0.2);
+  position: relative;
+}
+
+.crt:before,
+.crt:after {
+    content: "";
+    transform: translateZ(0);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+body.crt {
+    background-color: var(--clr-primary-bg);
+}
+
+body.crt[data-theme="dark"] {
+    background-color: rgb(25, 25, 30);
+    text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, 0.5),
+    -1px -1px rgba(0, 255, 255, 0.4);
+}
+
+
+.crt:before {
+    background: repeating-linear-gradient(
+      var(--crt-red) 0px,
+      var(--crt-green) 2px,
+      var(--crt-blue) 4px
+    );
+}
+.crt:after {
+    background: repeating-linear-gradient(
+      90deg,
+      var(--crt-red) 1px,
+      var(--crt-green) 2px,
+      var(--crt-blue) 3px
+    );
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 
 #theme-switch-container {
@@ -38,6 +108,24 @@
 .theme-switch {
     cursor: pointer;
 }
+
+
+#theme-switch-checkbox:not(:checked) + .theme-switch:hover .light-mode {
+    display: none;
+}
+
+#theme-switch-checkbox:not(:checked) + .theme-switch:hover .dark-mode {
+    display: inline;
+}
+
+#theme-switch-checkbox:checked + .theme-switch:hover .light-mode {
+    display: inline;
+}
+
+#theme-switch-checkbox:checked + .theme-switch:hover .dark-mode {
+    display: none;
+}
+
 
 #theme-switch-checkbox:checked + .theme-switch .light-mode {
     display: none;
