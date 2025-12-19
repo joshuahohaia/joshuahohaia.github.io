@@ -89,14 +89,36 @@ body.crt[data-theme="dark"] {
     }
 }
 
-
+.nav-group-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+}
 
 #theme-switch-container {
     font-family: auto;
     font-size: 1.25rem;
     color: var(--clr-primary-txt);
     z-index: 1;
+    margin-left: auto;
 }
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+.social-links a {
+    margin-left: 0.5rem;
+    display: flex;
+    transition: transform 0.2s;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
 
 #theme-switch-checkbox {
     display: none;
