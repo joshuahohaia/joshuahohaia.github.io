@@ -1,3 +1,18 @@
+const crtToggleButton = document.getElementById('crt-toggle-icon');
+
+function toggleCrt() {
+    const isCrtOn = document.body.classList.toggle('crt');
+    crtToggleButton.classList.toggle('active', isCrtOn);
+    localStorage.setItem('crt', isCrtOn ? 'on' : 'off');
+}
+
+if (localStorage.getItem('crt') !== 'off') {
+    document.body.classList.add('crt');
+    crtToggleButton.classList.add('active');
+}
+
+crtToggleButton.addEventListener('click', toggleCrt);
+
 const themeSwitch = document.getElementById('theme-switch-checkbox');
 const currentTheme = localStorage.getItem('theme');
 

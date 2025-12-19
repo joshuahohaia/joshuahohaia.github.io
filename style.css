@@ -89,34 +89,43 @@ body.crt[data-theme="dark"] {
     }
 }
 
+#crt-toggle-icon {
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--clr-primary-txt);
+}
+
+#crt-toggle-icon:hover {
+    color: var(--clr-blue);
+}
+
+#crt-toggle-icon.active {
+    color: var(--clr-blue);
+}
+
 .nav-group-right {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-left: auto;
 }
+
+.nav-group-right a {
+    display: flex;
+    transition: transform 0.2s;
+}
+
+.nav-group-right a:hover {
+    transform: scale(1.1);
+}
+
 
 #theme-switch-container {
     font-family: auto;
     font-size: 1.25rem;
     color: var(--clr-primary-txt);
+    height: 28px;
     z-index: 1;
     margin-left: auto;
-}
-
-.social-links {
-    display: flex;
-    align-items: center;
-}
-
-.social-links a {
-    margin-left: 0.5rem;
-    display: flex;
-    transition: transform 0.2s;
-}
-
-.social-links a:hover {
-    transform: scale(1.1);
 }
 
 
@@ -296,8 +305,7 @@ body {
     /* Keep this to separate tabs and theme switcher */
     align-items: center;
     border-bottom: 1px solid var(--clr-border);
-    padding: 0 1.5rem;
-    /* Add horizontal padding to the tabs container */
+    padding: 0 1rem;
 }
 
 .tab-links-container {
@@ -387,7 +395,7 @@ body {
 
 .timeline-item-date {
     font-size: 0.9rem;
-    color: var(--clr-pink);
+    color: var(--clr-blue);
 }
 
 .timeline-item-body {
