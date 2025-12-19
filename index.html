@@ -1,87 +1,304 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Hohaia</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- 
+        LinkedIn icon by Icons8: https://icons8.com/icon/ZADJgisVhP37/linkedin
+        GitHub icon by Icons8: https://icons8.com/icon/3R1xLIHPgzn5/github
+    -->
 </head>
-<body class="crt">
-    <div id="main-container">
-        <div id="theme-switch-container">
-            <input type="checkbox" id="theme-switch-checkbox">
-            <label class="theme-switch" for="theme-switch-checkbox">
-                <span class="light-mode">[□]</span>
-                <span class="dark-mode">[■]</span>
-            </label>
-        </div>
-        <div class="content">
 
-            <!-- Full ASCII -->
-            <div class="ascii-container ascii-full">
-                <pre class="ascii-banner">
-                    <div class="ascii-line">
+<body>
+    <div id="main-container">
+        <nav class="tabs">
+            <div class="tab-links-container">
+                <button class="tab-link active" data-tab="home">Home</button>
+                <!-- <button class="tab-link" data-tab="contact">Contact</button> -->
+            </div>
+            <div class="nav-group-right">
+                <svg id="crt-toggle-icon" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <div id="theme-switch-container">
+                    <input type="checkbox" id="theme-switch-checkbox">
+                    <label class="theme-switch" for="theme-switch-checkbox">
+                        <span class="light-mode">[□]</span>
+                        <span class="dark-mode">[■]</span>
+                    </label>
+                </div>
+                <!-- <a href="https://github.com/joshuahohaia" target="_blank">
+                    <img src="img/icons8-github-32.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/joshuahohaia/" target="_blank">
+                    <img src="img/icons8-linkedin-32.png" alt="LinkedIn">
+                </a> -->
+            </div>
+        </nav>
+        <div class="content">
+            <div id="home" class="tab-content active">
+                <!-- Full ASCII -->
+                <div class="ascii-container ascii-full">
+                    <pre class="ascii-banner">
+                        <div class="ascii-line">
 <span class="terminal-icon">
 __  
 \ \ 
- \ \
- / /
+ \ \ 
+ / / 
 /_/ 
-</span>   
+</span>
    __            _                               _           _       
    \ \  ___  ___| |__  _   _  __ _    /\  /\___ | |__   __ _(_) __ _ 
     \ \/ _ \/ __| '_ \| | | |/ _` |  / /_/ / _ \| '_ \ / _` | |/ _` |
  /\_/ / (_) \__ \ | | | |_| | (_| | / __  / (_) | | | | (_| | | (_| |
  \___/ \___/|___/_| |_|\__,_|\__,_| \/ /_/ \___/|_| |_|\__,_|_|\__,_|</pre>
-            </div>
+                </div>
 
-            <!-- Medium ASCII -->
-            <div class="ascii-container ascii-medium">
-                <pre class="ascii-banner">
-                    <div class="ascii-line">
+                <!-- Medium ASCII -->
+                <div class="ascii-container ascii-medium">
+                    <pre class="ascii-banner">
+                        <div class="ascii-line">
 <div class="terminal-icon">
 __  
 \ \ 
- \ \
- / /
+ \ \ 
+ / / 
 /_/ 
 </div>
    __            _                  
    \ \  ___  ___| |__  _   _  __ _  
     \ \/ _ \/ __| '_ \| | | |/ _` | 
  /\_/ / (_) \__ \ | | | |_| | (_| | 
- \___/ \___/|___/_| |_|\__,_|\__,_| 
+ \___/ \___/|___/_| |_|\__,_|\__,_|
                                     
                _           _        
     /\  /\___ | |__   __ _(_) __ _  
    / /_/ / _ \| '_ \ / _` | |/ _` | 
   / __  / (_) | | | | (_| | | (_| | 
   \/ /_/ \___/|_| |_|\__,_|_|\__,_|</pre>
-            </div>
+                </div>
 
-            <!-- Small ASCII -->
-            <div class="ascii-container ascii-small">
-                <pre class="ascii-banner">
-                    <div class="ascii-line">
+                <!-- Small ASCII -->
+                <div class="ascii-container ascii-small">
+                    <pre class="ascii-banner">
+                        <div class="ascii-line">
 <span class="terminal-icon">
 __  
 \ \ 
- \ \
- / /
+ \ \ 
+ / / 
 /_/ 
 </span>
    __         
-   \ \  /\  /\
-    \ \/ /_/ /
+   \ \  /\  /\ 
+    \ \/ /_/ / 
  /\_/ / __  / 
  \___/\/ /_/</pre>
-            </div>
+                </div>
 
-            <!-- Text -->
-            <div class="text-container">
-                <p class="text-output">Hi, I'm Josh<br>A <span class="text-blue">frontend developer</span> currently building software in <span class="text-blue">📍London, UK</span><br>My stack includes <span class="text-orange">React, Typescript, and Javascript</span><br>You can find a bit more about my work history here ~ <a href="https://www.linkedin.com/in/joshuahohaia/" target="_blank">LinkedIn</a></p>
+                <!-- Text -->
+                <div class="text-container">
+                    <img src="https://avatars.githubusercontent.com/u/58153260?v=4" alt="Joshua Hohaia"
+                        class="profile-pic">
+                    <p class="text-output">Hi, I'm Josh<br>A <span class="text-blue">frontend developer</span> currently
+                        building software in <span class="text-blue">📍London, UK</span><br>My stack includes <span
+                            class="text-orange">React, Typescript, and Javascript</span></p>
+                </div>
+
+                <h2 class="text-output">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-item-header active">
+                            <h3 class="timeline-item-title">Frontend Developer @ Kato</h3>
+                            <span class="timeline-item-date">Sep 2024 - Dec 2025</span>
+                            <span class="timeline-item-location">Soho, London</span>
+                        </div>
+                        <div class="timeline-item-body" style="max-height: fit-content;">
+                            <p class="text-output">Delivered core features for a commercial real estate CRM, powering
+                                digital onboarding, lease management, and property workflows for agencies and landlords.
+                                <span class="see-more">[see more]</span>
+                            </p>
+                            <div class="experience-details">
+                                <ul>
+                                    <li>Contributed to a major landlord-onboarding initiative, helping drive a 20%
+                                        increase
+                                        in landlord signups and supporting long-term platform growth.</li>
+                                    <li>Built real-time collaboration and deal-progress syncing with Pusher Channels and
+                                        React Query subscriptions, improving CRM responsiveness and user experience.
+                                    </li>
+                                    <li>Supported the progressive migration from AngularJS to React, reducing legacy
+                                        code
+                                        usage from 45% to 15%.</li>
+                                    <li>Replaced Redux with TanStack Query, improving server-state handling, reducing
+                                        boilerplate, and enhancing data-fetching performance.</li>
+                                    <li>Collaborated with product and design to deliver end-to-end features including
+                                        workflow boards, agent interaction graphs, and landlord mapping tools.</li>
+                                </ul>
+                                <p class="text-output"><strong>Skills:</strong> React.js, AngularJS, TypeScript, PHP,
+                                    Laravel</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-item-header">
+                            <h3 class="timeline-item-title">Software Developer @ Nodero</h3>
+                            <span class="timeline-item-date">Jul 2021 - Sep 2024</span>
+                            <span class="timeline-item-location">New Zealand</span>
+                        </div>
+                        <div class="timeline-item-body">
+                            <p class="text-output">Delivered tailored software solutions for clients across various
+                                industries, addressing specific business needs through both subcontracted projects and
+                                in-house software development.</p>
+                            <ul>
+                                <li>My work involved utilizing a comprehensive tech stack that included Node.js,
+                                    TypeScript, React.js, Flutter, PostgreSQL, and cloud platforms such as Microsoft
+                                    Azure and AWS.</li>
+                            </ul>
+                            <p class="text-output"><strong>Skills:</strong> Node.js, TypeScript, React.js, Microsoft
+                                Azure, Amazon Web Services (AWS), Full-Stack Development, PostgreSQL, Flutter,
+                                Application Deployment</p>
+                            <div class="sub-timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-item-header">
+                                        <h3 class="timeline-item-title">Frontend Developer @ FMG (Farmers Mutual Group)
+                                        </h3>
+                                        <span class="timeline-item-date">Feb 2024 - Aug 2024</span>
+                                        <span class="timeline-item-location">New Zealand</span>
+                                    </div>
+                                    <div class="timeline-item-body">
+                                        <p class="text-output">Delivered key features of FMG’s internal insurance
+                                            recording system, optimised for field agents working in low-connectivity
+                                            environments.</p>
+                                        <ul>
+                                            <li>Offline-first data capture with reliable syncing in low-connectivity
+                                                environments</li>
+                                            <li>Integrations with Guidewire to support policy and claims workflows</li>
+                                            <li>Collaborative feature refinement with business analysts</li>
+                                            <li>UI component development and testing using Storybook as the primary QA
+                                                tool</li>
+                                            <li>Performance optimisation for on-site devices and unstable networks</li>
+                                        </ul>
+                                        <p class="text-output"><strong>Skills:</strong> Next.js, TypeScript, Node.js,
+                                            Progressive Web Applications (PWAs), Storybook</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-header">
+                                        <h3 class="timeline-item-title">Software Developer @ Palmerston North City
+                                            Council</h3>
+                                        <span class="timeline-item-date">Nov 2023 - Jan 2024</span>
+                                        <span class="timeline-item-location">New Zealand</span>
+                                    </div>
+                                    <div class="timeline-item-body">
+                                        <p class="text-output">Developed an Electron application, seamlessly integrating
+                                            vehicle weighbridge and thermal printing devices.</p>
+                                        <ul>
+                                            <li>Robust serial/USB communication handling</li>
+                                            <li>Automated receipt generation and print workflows</li>
+                                            <li>Device configuration UI for operators</li>
+                                            <li>Offline-safe data storage and syncing</li>
+                                        </ul>
+                                        <p class="text-output"><strong>Skills:</strong> React.js, TypeScript, Electron,
+                                            Node.js, Amazon Web Services (AWS)</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-header">
+                                        <h3 class="timeline-item-title">Software Developer @ Massey University</h3>
+                                        <span class="timeline-item-date">Jun 2023 - Nov 2023</span>
+                                        <span class="timeline-item-location">New Zealand</span>
+                                    </div>
+                                    <div class="timeline-item-body">
+                                        <p class="text-output">Developed and deployed a cross-platform Flutter mobile
+                                            application under tight semester-start deadlines, giving students fast
+                                            access to essential orientation week features.</p>
+                                        <ul>
+                                            <li>Delivered end-to-end in a compressed timeline, ensuring readiness for
+                                                the semester launch</li>
+                                            <li>Implemented key features such as event schedules, campus information,
+                                                and student resources</li>
+                                            <li>Optimised for both iOS and Android with consistent UI and smooth
+                                                performance</li>
+                                            <li>Collaborated closely with university stakeholders to refine requirements
+                                                and prioritise features</li>
+                                            <li>Ensured reliability and quick iteration through effective use of
+                                                Flutter’s widget testing and hot-reload workflow</li>
+                                        </ul>
+                                        <p class="text-output"><strong>Skills:</strong> Flutter, Dart, Firebase,
+                                            Application Deployment, Google Analytics, AngularJS, C#</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-header">
+                                        <h3 class="timeline-item-title">Mobile Developer @ Koan</h3>
+                                        <span class="timeline-item-date">Feb 2022 - Jan 2023</span>
+                                        <span class="timeline-item-location">New Zealand</span>
+                                    </div>
+                                    <div class="timeline-item-body">
+                                        <p class="text-output">Delivered key Flutter features for the World Rugby SCRM
+                                            application, ensuring a reliable, secure, and high-quality experience for
+                                            medical and performance staff.</p>
+                                        <ul>
+                                            <li>Ensured high reliability and performance during critical operations</li>
+                                            <li>Worked cross-functionally to refine requirements and deliver
+                                                production--ready UI/UX</li>
+                                            <li>Implemented core player-tracking and assessment workflows</li>
+                                            <li>Integrated robust security measures (MFA, biometrics, data encryption)
+                                                for GDPR compliance</li>
+                                        </ul>
+                                        <p class="text-output"><strong>Skills:</strong> Flutter, Dart, Firebase,
+                                            Application Deployment, Amazon Web Services (AWS)</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-item-header">
+                                        <h3 class="timeline-item-title">Application Support Analyst @ Massey University
+                                        </h3>
+                                        <span class="timeline-item-date">Sep 2021 - Feb 2022</span>
+                                        <span class="timeline-item-location">New Zealand</span>
+                                    </div>
+                                    <div class="timeline-item-body">
+                                        <p class="text-output">Provided technical solutions for legacy systems, ensuring
+                                            minimal downtime and effective resolution of user-reported issues.</p>
+                                        <ul>
+                                            <li>Diagnosed and resolved issues across legacy applications and internal
+                                                systems</li>
+                                            <li>Followed established communication and escalation channels to ensure
+                                                timely problem resolution</li>
+                                            <li>Collaborated with stakeholders to identify recurring issues and
+                                                implement preventive measures</li>
+                                            <li>Maintained documentation of system issues and fixes to support team
+                                                knowledge sharing</li>
+                                        </ul>
+                                        <p class="text-output"><strong>Skills:</strong> Application Support, CRM
+                                            Integration, SITS</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-output"><a href="https://github.com/joshuahohaia" target="_blank">GitHub</a> |
+                    <a href="https://linkedin.com/joshuahohaia" target="_blank">Linkedin</a>
+                </p>
             </div>
         </div>
+        <div id="contact" class="tab-content">
+            <p class="text-output">Email: <a href="mailto:joshua.hohaia@gmail.com">joshua.hohaia@gmail.com</a>
+                <br>GitHub:<a href="https://github.com/joshuahohaia" target="_blank">joshuahohaia</a>
+                <br>Linkedin:<a href="https://linkedin.com/joshuahohaia" target="_blank">joshuahohaia</a>
+            </p>
+        </div>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
