@@ -198,12 +198,7 @@ body {
     /* Added more margin for visual separation */
     padding: 0;
     background: var(--clr-primary-bg);
-<<<<<<< HEAD
     height: 90vh;
-=======
-    height: calc(100vh - 4rem);
-    /* Set a fixed height based on viewport */
->>>>>>> d7db91a467c547806c1dd19ef04cb5b5ff74e391
     display: flex;
     flex-direction: column;
 }
@@ -283,17 +278,7 @@ body {
 
 .text-output a:hover {
     text-decoration: underline;
-<<<<<<< HEAD
 }
-
-.text-output::after {
-    content: '_';
-    color: var(--clr-pink);
-    animation: blink 1s infinite;
-=======
->>>>>>> d7db91a467c547806c1dd19ef04cb5b5ff74e391
-}
-
 
 @keyframes blink {
 
@@ -305,8 +290,6 @@ body {
     50% {
         opacity: 0;
     }
-<<<<<<< HEAD
-=======
 }
 
 /* Tabs navigation */
@@ -454,5 +437,4 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
->>>>>>> d7db91a467c547806c1dd19ef04cb5b5ff74e391
 }
