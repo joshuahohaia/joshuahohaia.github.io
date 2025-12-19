@@ -93,9 +93,6 @@ body.crt[data-theme="dark"] {
 
 
 #theme-switch-container {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
     font-family: auto;
     font-size: 1.25rem;
     color: var(--clr-primary-txt);
@@ -165,7 +162,7 @@ body {
     max-width: 800px;
     width: 100%;
     margin: 1rem;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0; /* Removed padding from main-container */
     background: var(--clr-primary-bg);
     overflow: hidden;
 }
@@ -228,4 +225,47 @@ body {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Tabs navigation */
+.tabs {
+    display: flex;
+    justify-content: space-between; /* Keep this to separate tabs and theme switcher */
+    align-items: center;
+    border-bottom: 1px solid var(--clr-border);
+    padding: 0 1.5rem; /* Add horizontal padding to the tabs container */
+}
+
+.tab-links-container {
+    display: flex; /* To group the tab links together */
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    color: var(--clr-primary-txt);
+    font-family: "Fira Mono", monospace, sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.tab-link.active {
+    background-color: var(--clr-primary-bg);
+    color: var(--clr-blue);
+    border-bottom: 2px solid var(--clr-blue);
+}
+
+.tab-link:hover {
+    color: var(--clr-orange);
+}
+
+/* Tab content */
+.tab-content {
+    display: none;
+    padding: 0 1.5rem 1.5rem 1.5rem; /* Add padding to the content div */
+}
+
+.tab-content.active {
+    display: block;
 }

@@ -1,44 +1,54 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joshua Hohaia</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="crt">
     <div id="main-container">
-        <div id="theme-switch-container">
-            <input type="checkbox" id="theme-switch-checkbox">
-            <label class="theme-switch" for="theme-switch-checkbox">
-                <span class="light-mode">[□]</span>
-                <span class="dark-mode">[■]</span>
-            </label>
-        </div>
+        <nav class="tabs">
+            <div class="tab-links-container">
+                <button class="tab-link active" data-tab="home">Home</button>
+                <button class="tab-link" data-tab="about">About</button>
+                <button class="tab-link" data-tab="contact">Contact</button>
+            </div>
+            <div id="theme-switch-container">
+                <input type="checkbox" id="theme-switch-checkbox">
+                <label class="theme-switch" for="theme-switch-checkbox">
+                    <span class="light-mode">[□]</span>
+                    <span class="dark-mode">[■]</span>
+                </label>
+            </div>
+        </nav>
         <div class="content">
-
-            <!-- Full ASCII -->
-            <div class="ascii-container ascii-full">
-                <pre class="ascii-banner">
-                    <div class="ascii-line">
+            <div id="home" class="tab-content active">
+                <!-- Full ASCII -->
+                <div class="ascii-container ascii-full">
+                    <pre class="ascii-banner">
+                        <div class="ascii-line">
 <span class="terminal-icon">
 __  
 \ \ 
  \ \
  / /
 /_/ 
-</span>   
+</span>
    __            _                               _           _       
    \ \  ___  ___| |__  _   _  __ _    /\  /\___ | |__   __ _(_) __ _ 
     \ \/ _ \/ __| '_ \| | | |/ _` |  / /_/ / _ \| '_ \ / _` | |/ _` |
  /\_/ / (_) \__ \ | | | |_| | (_| | / __  / (_) | | | | (_| | | (_| |
  \___/ \___/|___/_| |_|\__,_|\__,_| \/ /_/ \___/|_| |_|\__,_|_|\__,_|</pre>
-            </div>
+                </div>
 
-            <!-- Medium ASCII -->
-            <div class="ascii-container ascii-medium">
-                <pre class="ascii-banner">
-                    <div class="ascii-line">
+                <!-- Medium ASCII -->
+                <div class="ascii-container ascii-medium">
+                    <pre class="ascii-banner">
+                        <div class="ascii-line">
 <div class="terminal-icon">
 __  
 \ \ 
@@ -57,12 +67,12 @@ __
    / /_/ / _ \| '_ \ / _` | |/ _` | 
   / __  / (_) | | | | (_| | | (_| | 
   \/ /_/ \___/|_| |_|\__,_|_|\__,_|</pre>
-            </div>
+                </div>
 
-            <!-- Small ASCII -->
-            <div class="ascii-container ascii-small">
-                <pre class="ascii-banner">
-                    <div class="ascii-line">
+                <!-- Small ASCII -->
+                <div class="ascii-container ascii-small">
+                    <pre class="ascii-banner">
+                        <div class="ascii-line">
 <span class="terminal-icon">
 __  
 \ \ 
@@ -75,11 +85,24 @@ __
     \ \/ /_/ /
  /\_/ / __  / 
  \___/\/ /_/</pre>
-            </div>
+                </div>
 
-            <!-- Text -->
-            <div class="text-container">
-                <p class="text-output">Hi, I'm Josh<br>A <span class="text-blue">frontend developer</span> currently building software in <span class="text-blue">📍London, UK</span><br>My stack includes <span class="text-orange">React, Typescript, and Javascript</span><br>You can find a bit more about my work history here ~ <a href="https://www.linkedin.com/in/joshuahohaia/" target="_blank">LinkedIn</a></p>
+                <!-- Text -->
+                <div class="text-container">
+                    <p class="text-output">Hi, I'm Josh<br>A <span class="text-blue">frontend developer</span> currently
+                        building software in <span class="text-blue">📍London, UK</span><br>My stack includes <span
+                            class="text-orange">React, Typescript, and Javascript</span><br>You can find a bit more
+                        about my work history here ~ <a href="https://www.linkedin.com/in/joshuahohaia/"
+                            target="_blank">LinkedIn</a></p>
+                </div>
+            </div>
+            <div id="about" class="tab-content">
+                <p class="text-output">This is the about page.</p>
+            </div>
+            <div id="contact" class="tab-content">
+                <p class="text-output">Email: <a
+                        href="mailto:joshua.hohaia@gmail.com">joshua.hohaia@gmail.com</a><br>GitHub: <a
+                        href="https://github.com/joshuahohaia" target="_blank">joshuahohaia</a></p>
             </div>
         </div>
     </div>
