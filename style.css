@@ -89,17 +89,45 @@ body.crt[data-theme="dark"] {
     }
 }
 
+#crt-toggle-icon {
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--clr-primary-txt);
+}
+
+#crt-toggle-icon:hover {
+    color: var(--clr-blue);
+}
+
+#crt-toggle-icon.active {
+    color: var(--clr-blue);
+}
+
+.nav-group-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-group-right a {
+    display: flex;
+    transition: transform 0.2s;
+}
+
+.nav-group-right a:hover {
+    transform: scale(1.1);
+}
 
 
 #theme-switch-container {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
     font-family: auto;
     font-size: 1.25rem;
     color: var(--clr-primary-txt);
+    height: 28px;
     z-index: 1;
+    margin-left: auto;
 }
+
 
 #theme-switch-checkbox {
     display: none;
@@ -166,10 +194,16 @@ body {
     border: 1px solid var(--clr-border);
     max-width: 800px;
     width: 100%;
-    margin: 1rem;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin: 2rem;
+    /* Added more margin for visual separation */
+    padding: 0;
     background: var(--clr-primary-bg);
+<<<<<<< HEAD
     height: 90vh;
+=======
+    height: calc(100vh - 4rem);
+    /* Set a fixed height based on viewport */
+>>>>>>> d7db91a467c547806c1dd19ef04cb5b5ff74e391
     display: flex;
     flex-direction: column;
 }
@@ -230,7 +264,6 @@ body {
 
 .text-output {
     margin: 0;
-    margin-top: 1rem;
     line-height: 1.5rem;
     word-break: break-word;
 }
@@ -250,13 +283,17 @@ body {
 
 .text-output a:hover {
     text-decoration: underline;
+<<<<<<< HEAD
 }
 
 .text-output::after {
     content: '_';
     color: var(--clr-pink);
     animation: blink 1s infinite;
+=======
+>>>>>>> d7db91a467c547806c1dd19ef04cb5b5ff74e391
 }
+
 
 @keyframes blink {
 
@@ -268,4 +305,154 @@ body {
     50% {
         opacity: 0;
     }
+<<<<<<< HEAD
+=======
+}
+
+/* Tabs navigation */
+.tabs {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--clr-primary-bg);
+    display: flex;
+    justify-content: space-between;
+    /* Keep this to separate tabs and theme switcher */
+    align-items: center;
+    border-bottom: 1px solid var(--clr-border);
+    padding: 0 1rem;
+}
+
+.tab-links-container {
+    display: flex;
+    /* To group the tab links together */
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    color: var(--clr-primary-txt);
+    font-family: "Fira Mono", monospace, sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.tab-link.active {
+    background-color: var(--clr-primary-bg);
+    color: var(--clr-blue);
+    border-bottom: 2px solid var(--clr-blue);
+}
+
+.tab-link:hover {
+    color: var(--clr-orange);
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Tab content */
+.tab-content {
+    display: none;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    /* Add padding to the content div */
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* About section styles */
+.about-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.text-container {
+    flex-direction: row;
+    display: flex;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.timeline {
+    border-left: 2px solid var(--clr-border);
+    padding-left: 1.5rem;
+}
+
+.timeline-item {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item-header {
+    cursor: pointer;
+    padding: 0.5rem 0;
+}
+
+.timeline-item-header:hover h3 {
+    color: var(--clr-orange);
+}
+
+.timeline-item-title {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.timeline-item-date {
+    font-size: 0.9rem;
+    color: var(--clr-blue);
+}
+
+.timeline-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.timeline-item-body ul {
+    list-style-type: '→ ';
+    padding-left: 1rem;
+}
+
+.timeline-item-body ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sub-timeline {
+    margin-top: 1rem;
+    border-left: 2px solid var(--clr-border);
+    padding-left: 1rem;
+}
+
+.timeline-item-location {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--clr-primary-txt);
+}
+
+.see-more {
+    color: var(--clr-pink);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+.experience-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+>>>>>>> d7db91a467c547806c1dd19ef04cb5b5ff74e391
 }
