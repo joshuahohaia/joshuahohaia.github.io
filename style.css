@@ -283,6 +283,10 @@ body.crt .scanline {
         display: block;
     }
 
+    .ascii-banner {
+        font-size: 0.7rem;
+    }
+
     .profile-pic {
         display: none;
     }

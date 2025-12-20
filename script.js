@@ -83,7 +83,7 @@ tabs.forEach(tab => {
 const timelineItems = document.querySelectorAll('.timeline-item-header');
 
 timelineItems.forEach(item => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
         const body = item.nextElementSibling;
         item.classList.toggle('open');
 
@@ -92,6 +92,19 @@ timelineItems.forEach(item => {
             body.style.maxHeight = null;
         } else {
             body.style.maxHeight = body.scrollHeight + "px";
+        }
+
+        // Recursively update max-height of parent timeline items
+        let currentBody = item.closest('.timeline-item-body');
+        while (currentBody) {
+            if (currentBody.style.maxHeight) {
+                // Add the child's scrollHeight (plus a buffer for safety/padding if needed, but scrollHeight usually covers it)
+                // Actually, just re-reading the parent's scrollHeight is the most robust way
+                // as it accounts for the new size of the expanded child.
+                currentBody.style.maxHeight = currentBody.scrollHeight + "px";
+            }
+            // Move up to the next parent timeline-item-body
+            currentBody = currentBody.parentElement.closest('.timeline-item-body');
         }
     });
 });
