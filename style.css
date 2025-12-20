@@ -414,6 +414,7 @@ body.crt .scanline {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .timeline {
@@ -471,21 +472,6 @@ body.crt .scanline {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.timeline-item-title::before {
-    content: "[+]";
-    color: var(--clr-blue);
-    font-family: "Fira Mono", monospace;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-    transition: color 0.2s;
-    width: 3ch;
-    text-align: center;
-}
-
-.timeline-item-header.open .timeline-item-title::before {
-    content: "[-]";
 }
 
 .timeline-item-header:hover .timeline-item-title::before {
