@@ -69,26 +69,6 @@ body.crt[data-theme="dark"] {
             var(--crt-blue) 3px);
 }
 
-@keyframes typewriter {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blinkTextCursor {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
 @media (prefers-reduced-motion: reduce) {
 
     .crt:before,
@@ -366,13 +346,6 @@ body {
     gap: 1rem;
 }
 
-/* About section styles */
-.about-intro {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
 .text-container {
     flex-direction: row;
     display: flex;
@@ -472,20 +445,4 @@ body {
     display: block;
     font-size: 0.8rem;
     color: var(--clr-primary-txt);
-}
-
-.see-more {
-    color: var(--clr-pink);
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.see-more:hover {
-    text-decoration: underline;
-}
-
-.experience-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
 }
