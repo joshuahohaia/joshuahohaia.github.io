@@ -16,7 +16,7 @@ const charPreview = document.getElementById('char-preview');
 const githubInput = document.getElementById('github-username-input');
 
 let isGameRunning = false;
-let gameSpeed = 7;
+let gameSpeed = 5;
 let obstacles = [];
 let frameId;
 let spawnTimer = 0;
@@ -136,7 +136,7 @@ function startGame() {
     // Game State Reset
     collectedIndex = 0;
     updateLetterDisplay();
-    gameSpeed = 7;
+    gameSpeed = 5;
 
     // Player Reset
     playerBottom = 0;

@@ -210,7 +210,7 @@ body {
     border: 1px solid var(--clr-border);
     max-width: 800px;
     width: 100%;
-    margin: 2rem;
+    margin: 1rem;
     /* Added more margin for visual separation */
     padding: 0;
     background: var(--clr-primary-bg);
@@ -373,7 +373,7 @@ body.crt .scanline {
     color: var(--clr-primary-txt);
     font-family: "Fira Mono", monospace, sans-serif;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0rem 0.5rem;
     cursor: pointer;
 }
 
