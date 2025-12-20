@@ -82,7 +82,7 @@ __
     /\  /\___ | |__   __ _(_) __ _  
    / /_/ / _ \| '_ \ / _` | |/ _` | 
   / __  / (_) | | | | (_| | | (_| | 
-  \/ /_/ \___/|_| |_|\__,_|_|\__,_|</pre>
+  \/ /_/ \___/|_| |_|\__,_|_|\__,_|</div></pre>
                 </div>
 
                 <!-- Small ASCII -->
@@ -100,7 +100,7 @@ __
    \ \  /\  /\ 
     \ \/ /_/ / 
  /\_/ / __  / 
- \___/\/ /_/</pre>
+ \___/\/ /_/</div></pre>
                 </div>
 
                 <!-- Text -->
@@ -122,15 +122,57 @@ __
                     <a href="https://linkedin.com/joshuahohaia" target="_blank">Linkedin</a>
                 </p> -->
             </div>
+
+            <div id="contact" class="tab-content">
+
+
+                <div id="game-container" class="retro-border"
+                    aria-label="Interactive game: Collect letters to spell Joshua. Use Space or Tap to jump."
+                    role="application">
+                    <div id="game-canvas" aria-hidden="true">
+                        <div id="player" class="game-entity"></div>
+                        <div id="game-start-overlay">
+                            <p>Collect letters to spell JOSHUA</p>
+
+                            <!-- Character Selector -->
+                            <div class="char-select-container">
+                                <p style="font-size: 0.8rem; margin-bottom: 5px;">CHOOSE PLAYER</p>
+                                <div class="char-select-row">
+                                    <button id="prev-char" class="retro-btn-small">&lt;</button>
+                                    <div id="char-preview" class="player-preview">🛸</div>
+                                    <button id="next-char" class="retro-btn-small">&gt;</button>
+                                </div>
+                                <input type="text" id="github-username-input" class="retro-input"
+                                    placeholder="GitHub Username" style="visibility: hidden;">
+                            </div>
+
+                            <button id="start-btn" class="retro-btn">PLAY</button>
+                        </div>
+                        <div id="game-message">
+                            <p id="game-message-text" class="blink">GAME OVER</p>
+                            <button id="restart-btn" class="retro-btn">TRY AGAIN</button>
+                        </div>
+                    </div>
+                    <div id="game-ui" aria-hidden="true">
+                        <p>Jump: [SPACE] or Tap</p>
+                        <p>COLLECT: <span id="letter-display">_ _ _ _ _ _</span></p>
+                    </div>
+                    <!-- Mobile Controls -->
+                    <div id="mobile-controls" style="display: none; justify-content: center; margin-top: 10px;"
+                        aria-hidden="true">
+                        <button id="mobile-jump-btn" class="retro-btn" style="width: 100%;">JUMP</button>
+                    </div>
+                </div>
+                <p class="text-output">
+                    Email: <a href="mailto:joshua.hohaia@gmail.com" class="email-copy-link">joshua.hohaia@gmail.com</a>
+                    <br>GitHub: <a href="https://github.com/joshuahohaia" target="_blank">joshuahohaia</a>
+                    <br>Linkedin: <a href="https://linkedin.com/in/joshuahohaia" target="_blank">joshuahohaia</a>
+                </p>
+
+            </div>
         </div>
-        <div id="contact" class="tab-content">
-            <p class="text-output">Email: <a href="mailto:joshua.hohaia@gmail.com">joshua.hohaia@gmail.com</a>
-                <br>GitHub:<a href="https://github.com/joshuahohaia" target="_blank">joshuahohaia</a>
-                <br>Linkedin:<a href="https://linkedin.com/joshuahohaia" target="_blank">joshuahohaia</a>
-            </p>
-        </div>
-    </div>
     </div>
     <script src="data.js"></script>
+    <script src="game.js"></script>
     <script src="script.js"></script>
 </body>

@@ -161,8 +161,7 @@ if (typeof timelineData !== 'undefined' && timelineContainer) {
     });
 }
 
-// Timeline expansion logic using max-height: none for auto-sizing
-// Re-select items after rendering
+// Timeline expansion logic
 const timelineItems = document.querySelectorAll('.timeline-item-header');
 
 timelineItems.forEach(item => {
@@ -172,15 +171,8 @@ timelineItems.forEach(item => {
 
         if (item.classList.contains('open')) {
             // CLOSING
-            // 1. Lock the height to its current pixel value (transition needs start point)
             body.style.maxHeight = body.scrollHeight + "px";
-
-            // 2. Force reflow to ensure the browser registers the start height
-            // void operator creates an expression that evaluates to undefined, preventing unused var warning
             void body.offsetHeight;
-
-            // 3. Trigger the transition to 0
-            // We use requestAnimationFrame to ensure the reflow has settled
             requestAnimationFrame(() => {
                 body.style.maxHeight = null;
                 item.classList.remove('open');
@@ -188,12 +180,8 @@ timelineItems.forEach(item => {
         } else {
             // OPENING
             item.classList.add('open');
-            // Set initial target height for animation
             body.style.maxHeight = body.scrollHeight + "px";
-
-            // Once transition is done, remove the constraint so nested items can expand freely
             body.addEventListener('transitionend', function onEnd() {
-                // Check if still open (user didn't click close mid-animation)
                 if (item.classList.contains('open')) {
                     body.style.maxHeight = "none";
                 }
@@ -202,3 +190,11 @@ timelineItems.forEach(item => {
         }
     });
 });
+
+// Copy Email Logic (Click-to-Copy) - REMOVED per user request
+// The email link will now function as a standard mailto link.
+const emailFeedback = document.querySelector('.copy-feedback');
+
+if (emailFeedback) {
+    emailFeedback.style.display = 'none';
+}
