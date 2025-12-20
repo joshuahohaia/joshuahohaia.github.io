@@ -80,31 +80,43 @@ tabs.forEach(tab => {
     });
 });
 
+// Timeline expansion logic using max-height: none for auto-sizing
 const timelineItems = document.querySelectorAll('.timeline-item-header');
 
 timelineItems.forEach(item => {
     item.addEventListener('click', (e) => {
+        e.stopPropagation();
         const body = item.nextElementSibling;
-        item.classList.toggle('open');
-
-        // Toggle the clicked item's body
-        if (body.style.maxHeight) {
-            body.style.maxHeight = null;
-        } else {
+        
+        if (item.classList.contains('open')) {
+            // CLOSING
+            // 1. Lock the height to its current pixel value (transition needs start point)
             body.style.maxHeight = body.scrollHeight + "px";
-        }
+            
+            // 2. Force reflow to ensure the browser registers the start height
+            // void operator creates an expression that evaluates to undefined, preventing unused var warning
+            void body.offsetHeight;
 
-        // Recursively update max-height of parent timeline items
-        let currentBody = item.closest('.timeline-item-body');
-        while (currentBody) {
-            if (currentBody.style.maxHeight) {
-                // Add the child's scrollHeight (plus a buffer for safety/padding if needed, but scrollHeight usually covers it)
-                // Actually, just re-reading the parent's scrollHeight is the most robust way
-                // as it accounts for the new size of the expanded child.
-                currentBody.style.maxHeight = currentBody.scrollHeight + "px";
-            }
-            // Move up to the next parent timeline-item-body
-            currentBody = currentBody.parentElement.closest('.timeline-item-body');
+            // 3. Trigger the transition to 0
+            // We use requestAnimationFrame to ensure the reflow has settled
+            requestAnimationFrame(() => {
+                body.style.maxHeight = null;
+                item.classList.remove('open');
+            });
+        } else {
+            // OPENING
+            item.classList.add('open');
+            // Set initial target height for animation
+            body.style.maxHeight = body.scrollHeight + "px";
+            
+            // Once transition is done, remove the constraint so nested items can expand freely
+            body.addEventListener('transitionend', function onEnd() {
+                // Check if still open (user didn't click close mid-animation)
+                if (item.classList.contains('open')) {
+                    body.style.maxHeight = "none";
+                }
+                body.removeEventListener('transitionend', onEnd);
+            }, { once: true });
         }
     });
 });
