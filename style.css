@@ -89,6 +89,14 @@ body.crt[data-theme="dark"] {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+
+    .crt:before,
+    .crt:after {
+        display: none;
+    }
+}
+
 #crt-toggle-icon {
     cursor: pointer;
     padding: 0.5rem;
@@ -240,11 +248,19 @@ body {
     .ascii-medium {
         display: block;
     }
+
+    .profile-pic {
+        display: none;
+    }
 }
 
 @media (max-width: 345px) {
     .ascii-small {
         display: block;
+    }
+
+    .profile-pic {
+        display: none;
     }
 }
 
@@ -334,6 +350,7 @@ body {
 .content {
     flex: 1;
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 
 /* Tab content */
@@ -378,6 +395,10 @@ body {
 }
 
 .timeline-item-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    color: var(--clr-orange);
     cursor: pointer;
     padding: 0.5rem 0;
 }
@@ -387,13 +408,42 @@ body {
 }
 
 .timeline-item-title {
+    color: var(--clr-blue);
     margin: 0;
     font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timeline-item-title::before {
+    content: "[+]";
+    color: var(--clr-blue);
+    font-family: "Fira Mono", monospace;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    transition: color 0.2s;
+    width: 3ch;
+    text-align: center;
+}
+
+.timeline-item-header.open .timeline-item-title::before {
+    content: "[-]";
+}
+
+.timeline-item-header:hover .timeline-item-title::before {
+    color: var(--clr-orange);
 }
 
 .timeline-item-date {
     font-size: 0.9rem;
-    color: var(--clr-blue);
+    color: var(--clr-primary-txt);
+}
+
+.timeline-item-initial-summary {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--clr-primary-txt);
 }
 
 .timeline-item-body {
@@ -415,6 +465,7 @@ body {
     margin-top: 1rem;
     border-left: 2px solid var(--clr-border);
     padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .timeline-item-location {
