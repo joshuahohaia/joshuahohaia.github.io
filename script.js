@@ -1,17 +1,33 @@
-const crtToggleButton = document.getElementById('crt-toggle-icon');
+const crtIntensitySlider = document.getElementById('crt-intensity');
 
-function toggleCrt() {
-    const isCrtOn = document.body.classList.toggle('crt');
-    crtToggleButton.classList.toggle('active', isCrtOn);
-    localStorage.setItem('crt', isCrtOn ? 'on' : 'off');
+function updateCrtIntensity(intensity) {
+    const opacity = intensity / 100;
+    // Max opacity for the overlay is 0.8 for high intensity
+    const scaledOpacity = opacity * 0.8;
+
+    document.documentElement.style.setProperty('--crt-opacity', scaledOpacity);
+
+    if (intensity > 0) {
+        document.body.classList.add('crt');
+    } else {
+        document.body.classList.remove('crt');
+    }
+
+    localStorage.setItem('crt-intensity', intensity);
 }
 
-if (localStorage.getItem('crt') === 'on') {
-    document.body.classList.add('crt');
-    crtToggleButton.classList.add('active');
+const savedIntensity = localStorage.getItem('crt-intensity');
+if (savedIntensity !== null) {
+    crtIntensitySlider.value = savedIntensity;
+    updateCrtIntensity(savedIntensity);
+} else {
+    // Default to off
+    updateCrtIntensity(0);
 }
 
-crtToggleButton.addEventListener('click', toggleCrt);
+crtIntensitySlider.addEventListener('input', (e) => {
+    updateCrtIntensity(e.target.value);
+});
 
 const themeSwitch = document.getElementById('theme-switch-checkbox');
 const currentTheme = localStorage.getItem('theme');

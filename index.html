@@ -15,18 +15,17 @@
 
 <body>
     <div id="main-container">
+        <div class="scanline"></div>
         <nav class="tabs">
             <div class="tab-links-container">
                 <button class="tab-link active" data-tab="home">Home</button>
                 <!-- <button class="tab-link" data-tab="contact">Contact</button> -->
             </div>
             <div class="nav-group-right">
-                <svg id="crt-toggle-icon" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
+                <div class="crt-control">
+                    <label for="crt-intensity">CRT</label>
+                    <input type="range" id="crt-intensity" min="0" max="100" value="0" step="1">
+                </div>
                 <div id="theme-switch-container">
                     <input type="checkbox" id="theme-switch-checkbox">
                     <label class="theme-switch" for="theme-switch-checkbox">
@@ -127,21 +126,15 @@ __
                         </div>
                         <div class="timeline-item-body">
                             <ul>
-                                <li>Contributed to a major landlord-onboarding initiative, helping drive a 20%
-                                    increase
-                                    in landlord signups and supporting long-term platform growth.</li>
-                                <li>Built real-time collaboration and deal-progress syncing with Pusher Channels and
-                                    React Query subscriptions, improving CRM responsiveness and user experience.
+                                <li>Key contributor in a major landlord-onboarding initiative</li>
+                                <li>Built real-time collaboration and deal syncing using Pusher events.</li>
+                                <li>Reduced legacy AngularJS usage from 45% to 15% via React migration.</li>
+                                <li>Migrated Redux to TanStack Query, improving performance and reducing boilerplate.
                                 </li>
-                                <li>Supported the progressive migration from AngularJS to React, reducing legacy
-                                    code
-                                    usage from 45% to 15%.</li>
-                                <li>Replaced Redux with TanStack Query, improving server-state handling, reducing
-                                    boilerplate, and enhancing data-fetching performance.</li>
-                                <li>Collaborated with product and design to deliver end-to-end features including
-                                    workflow boards, agent interaction graphs, and landlord mapping tools.</li>
+                                <li>Delivered end-to-end features including workflow boards and agent interaction
+                                    graphs.</li>
                             </ul>
-                            <p class="text-output"><strong>Skills:</strong> React.js, AngularJS, TypeScript, PHP,
+                            <p class="text-output"><strong>Skills:</strong> React, AngularJS, TypeScript, PHP,
                                 Laravel</p>
                         </div>
                     </div>
@@ -150,20 +143,14 @@ __
                             <h3 class="timeline-item-title">Software Developer @ Nodero</h3>
                             <span class="timeline-item-date">Jul 2021 - Sep 2024</span>
                             <span class="timeline-item-location">New Zealand</span>
-                            <span class="timeline-item-initial-summary"> Delivered tailored software solutions for
-                                clients across various
-                                industries, addressing specific business needs through both subcontracted projects and
-                                in-house software development. </span>
+                            <span class="timeline-item-initial-summary">Contractor agency role delivering tailored
+                                software solutions across various industries. Worked in diverse roles from Full-Stack
+                                (C# & Azure) to Frontend (React & TypeScript) and Mobile (Flutter), providing broad
+                                exposure across the stack.</span>
                         </div>
                         <div class="timeline-item-body">
-                            <ul>
-                                <li>My work involved utilizing a comprehensive tech stack that included Node.js,
-                                    TypeScript, React.js, Flutter, PostgreSQL, and cloud platforms such as Microsoft
-                                    Azure and AWS.</li>
-                            </ul>
-                            <p class="text-output"><strong>Skills:</strong> Node.js, TypeScript, React.js, Microsoft
-                                Azure, Amazon Web Services (AWS), Full-Stack Development, PostgreSQL, Flutter,
-                                Application Deployment</p>
+                            <p class="text-output"><strong>Skills:</strong> Node.js, TypeScript, React, Azure, AWS,
+                                Flutter, C#</p>
                             <div class="sub-timeline">
                                 <div class="timeline-item">
                                     <div class="timeline-item-header">
@@ -207,7 +194,7 @@ __
                                             <li>Device configuration UI for operators</li>
                                             <li>Offline-safe data storage and syncing</li>
                                         </ul>
-                                        <p class="text-output"><strong>Skills:</strong> React.js, TypeScript, Electron,
+                                        <p class="text-output"><strong>Skills:</strong> React, TypeScript, Electron,
                                             Node.js, Amazon Web Services (AWS)</p>
                                     </div>
                                 </div>
