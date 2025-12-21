@@ -617,7 +617,6 @@ body.crt .scanline {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid var(--clr-border);
     padding: 0.8rem 1.5rem;
     text-align: center;
     width: 85%;
