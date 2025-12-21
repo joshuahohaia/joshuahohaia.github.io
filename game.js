@@ -117,6 +117,12 @@ nextCharBtn.addEventListener('click', () => {
 
 githubInput.addEventListener('input', updateCharPreview);
 
+githubInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        startGame();
+    }
+});
+
 // Game State
 function startGame() {
     if (isGameRunning) return;
@@ -212,8 +218,7 @@ function spawnLetter(char) {
     el.innerText = char;
 
     // Letters placement
-    const isHigh = Math.random() > 0.5;
-    const bottom = isHigh ? 60 : 10;
+    const bottom = 10;
 
     el.style.bottom = bottom + 'px';
     el.style.left = '0px'; // Set to 0 for transform positioning

@@ -604,7 +604,7 @@ body.crt .scanline {
 }
 
 #game-ui {
-    margin-top: 0.5rem;
+    margin: 0.5rem 0.5rem 0rem 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
