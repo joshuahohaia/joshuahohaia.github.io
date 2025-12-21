@@ -682,6 +682,15 @@ body.crt .scanline {
     color: var(--clr-primary-bg);
 }
 
+.confetti-particle {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    z-index: 15;
+    font-weight: bold;
+    will-change: transform, opacity;
+}
+
 /* ==========================================================================
    8. Media Queries
    ========================================================================== */

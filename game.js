@@ -127,6 +127,8 @@ githubInput.addEventListener('keydown', (e) => {
 function startGame() {
     if (isGameRunning) return;
 
+    stopConfetti();
+
     // Update dimensions on start
     gameWidth = gameCanvas.clientWidth;
 
@@ -165,10 +167,12 @@ function stopGame(won) {
 
     gameMessage.style.display = 'block';
     if (won) {
-        gameMessageText.innerText = "VICTORY!";
+        gameMessageText.innerText = "YOU WIN!";
         gameMessageText.style.color = "var(--clr-green)";
         restartBtn.innerText = "PLAY AGAIN";
+        startConfetti();
     } else {
+        stopConfetti();
         gameMessageText.innerText = "GAME OVER";
         gameMessageText.style.color = "var(--clr-orange)";
         restartBtn.innerText = "TRY AGAIN";
@@ -408,7 +412,11 @@ function gameLoop() {
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space' || e.code === 'ArrowUp') {
         e.preventDefault();
-        jump();
+        if (isGameRunning) {
+            jump();
+        } else if (gameMessage.style.display === 'block') {
+            startGame();
+        }
     }
 });
 
@@ -459,3 +467,74 @@ homeTabBtn.addEventListener('click', () => {
         gameStartOverlay.style.display = 'flex'; // Reset to start
     }
 });
+
+// --- Confetti Logic ---
+let confettiParticles = [];
+let confettiFrameId;
+
+function startConfetti() {
+    // Clear existing
+    stopConfetti();
+
+    const colors = ['var(--clr-blue)', 'var(--clr-orange)', 'var(--clr-green)', 'var(--clr-pink)', 'var(--clr-primary-txt)'];
+    const chars = ['*', '~', '+', '.', ':', 'o', 'x', '^', '#'];
+
+    for (let i = 0; i < 60; i++) {
+        const el = document.createElement('div');
+        el.classList.add('confetti-particle');
+        el.innerText = chars[Math.floor(Math.random() * chars.length)];
+        el.style.color = colors[Math.floor(Math.random() * colors.length)];
+        el.style.fontSize = (Math.random() * 10 + 10) + 'px'; // 10-20px
+
+        // Random starting position
+        const x = Math.random() * gameCanvas.clientWidth;
+        const y = -Math.random() * gameCanvas.clientHeight; // Start above
+
+        // Random velocities
+        const vx = (Math.random() - 0.5) * 2; // -1 to 1
+        const vy = Math.random() * 1 + 1; // 1 to 2 (fall speed)
+
+        gameCanvas.appendChild(el);
+
+        confettiParticles.push({
+            element: el,
+            x: x,
+            y: y,
+            vx: vx,
+            vy: vy,
+            rotation: Math.random() * 360,
+            rotationSpeed: (Math.random() - 0.5) * 10
+        });
+    }
+
+    confettiLoop();
+}
+
+function confettiLoop() {
+    const height = gameCanvas.clientHeight;
+    const width = gameCanvas.clientWidth;
+
+    confettiParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rotation += p.rotationSpeed;
+
+        // Wrap around
+        if (p.y > height) {
+            p.y = -20;
+            p.x = Math.random() * width;
+        }
+        if (p.x > width) p.x = 0;
+        if (p.x < 0) p.x = width;
+
+        p.element.style.transform = `translate3d(${p.x}px, ${p.y}px, 0) rotate(${p.rotation}deg)`;
+    });
+
+    confettiFrameId = requestAnimationFrame(confettiLoop);
+}
+
+function stopConfetti() {
+    cancelAnimationFrame(confettiFrameId);
+    confettiParticles.forEach(p => p.element.remove());
+    confettiParticles = [];
+}
