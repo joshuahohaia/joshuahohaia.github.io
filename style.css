@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. Variables & Reset
+   ========================================================================== */
 * {
     box-sizing: border-box;
 }
@@ -25,6 +28,138 @@
     --clr-green: #3fb950;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-primary-bg);
+    color: var(--clr-primary-txt);
+    font-family: "Fira Mono", monospace, sans-serif;
+}
+
+/* ==========================================================================
+   2. Typography & Utilities
+   ========================================================================== */
+.text-output {
+    margin: 0;
+    line-height: 1.5rem;
+    word-break: break-word;
+}
+
+.text-output a {
+    color: var(--clr-pink);
+    text-decoration: none;
+}
+
+.text-output a:hover {
+    text-decoration: underline;
+}
+
+.text-blue {
+    color: var(--clr-blue);
+}
+
+.text-orange {
+    color: var(--clr-orange);
+}
+
+.blink {
+    animation: blink 1s infinite;
+    color: var(--clr-orange);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================================================
+   3. Layout & Global Components
+   ========================================================================== */
+#main-container {
+    position: relative;
+    border: 1px solid var(--clr-border);
+    max-width: 800px;
+    width: 100%;
+    margin: 1rem;
+    padding: 0;
+    background: var(--clr-primary-bg);
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-gutter: auto;
+}
+
+.tab-content {
+    display: none;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.tab-content.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#contact {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.text-container {
+    flex-direction: row;
+    display: flex;
+    gap: 1rem;
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* --- CRT Effect --- */
 .crt {
     text-shadow: 0 0 0.1em currentColor,
         1px 1px rgba(255, 0, 255, var(--crt-opacity)),
@@ -58,18 +193,39 @@ body.crt[data-theme="dark"] {
     background-color: rgb(25, 25, 30);
 }
 
-
 .crt:before {
-    background: repeating-linear-gradient(var(--crt-red) 0px,
-            var(--crt-green) 2px,
-            var(--crt-blue) 4px);
+    background: repeating-linear-gradient(var(--crt-red) 0px, var(--crt-green) 2px, var(--crt-blue) 4px);
 }
 
 .crt:after {
-    background: repeating-linear-gradient(90deg,
-            var(--crt-red) 1px,
-            var(--crt-green) 2px,
-            var(--crt-blue) 3px);
+    background: repeating-linear-gradient(90deg, var(--crt-red) 1px, var(--crt-green) 2px, var(--crt-blue) 3px);
+}
+
+.scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+    display: none;
+}
+
+body.crt .scanline {
+    display: block;
+}
+
+@keyframes scanline {
+    0% {
+        bottom: 100%;
+    }
+
+    100% {
+        bottom: -100%;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -80,6 +236,52 @@ body.crt[data-theme="dark"] {
     }
 }
 
+/* ==========================================================================
+   4. Navigation & Controls
+   ========================================================================== */
+.tabs {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--clr-primary-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--clr-border);
+    padding: 0 1rem;
+}
+
+.tab-links-container {
+    display: flex;
+}
+
+.tab-link {
+    background: none;
+    border: none;
+    color: var(--clr-primary-txt);
+    font-family: "Fira Mono", monospace, sans-serif;
+    font-size: 1rem;
+    padding: 0rem 0.5rem;
+    cursor: pointer;
+}
+
+.tab-link.active {
+    background-color: var(--clr-primary-bg);
+    color: var(--clr-blue);
+    border-bottom: 2px solid var(--clr-blue);
+}
+
+.tab-link:hover {
+    color: var(--clr-orange);
+}
+
+.nav-group-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* CRT Control Slider */
 .crt-control {
     display: flex;
     align-items: center;
@@ -119,31 +321,16 @@ body.crt[data-theme="dark"] {
     box-shadow: 0 0 5px var(--clr-blue);
 }
 
-.nav-group-right {
+/* Theme Switcher */
+#theme-switch-container {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.nav-group-right a {
-    display: flex;
-    transition: transform 0.2s;
-}
-
-.nav-group-right a:hover {
-    transform: scale(1.1);
-}
-
-
-#theme-switch-container {
-    font-family: auto;
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--clr-primary-txt);
-    height: 28px;
+    height: 32px;
     z-index: 1;
     margin-left: auto;
 }
-
 
 #theme-switch-checkbox {
     display: none;
@@ -151,8 +338,9 @@ body.crt[data-theme="dark"] {
 
 .theme-switch {
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
-
 
 #theme-switch-checkbox:not(:checked)+.theme-switch:hover .light-mode {
     display: none;
@@ -170,7 +358,6 @@ body.crt[data-theme="dark"] {
     display: none;
 }
 
-
 #theme-switch-checkbox:checked+.theme-switch .light-mode {
     display: none;
 }
@@ -187,66 +374,9 @@ body.crt[data-theme="dark"] {
     display: none;
 }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--clr-primary-bg);
-    color: var(--clr-primary-txt);
-    font-family: "Fira Mono", monospace, sans-serif;
-}
-
-#main-container {
-    position: relative;
-    border: 1px solid var(--clr-border);
-    max-width: 800px;
-    width: 100%;
-    margin: 1rem;
-    /* Added more margin for visual separation */
-    padding: 0;
-    background: var(--clr-primary-bg);
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.scanline {
-    width: 100%;
-    height: 100px;
-    z-index: 10;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
-    opacity: 0.1;
-    position: absolute;
-    bottom: 100%;
-    animation: scanline 8s linear infinite;
-    pointer-events: none;
-    display: none;
-}
-
-body.crt .scanline {
-    display: block;
-}
-
-@keyframes scanline {
-    0% {
-        bottom: 100%;
-    }
-
-    100% {
-        bottom: -100%;
-    }
-}
-
+/* ==========================================================================
+   5. ASCII Art
+   ========================================================================== */
 .ascii-container {
     position: relative;
     display: inline-block;
@@ -261,47 +391,10 @@ body.crt .scanline {
     display: flex;
 }
 
-/* Responsive ASCII visibility */
-.ascii-full {
-    display: none;
-}
-
-.ascii-medium {
-    display: none;
-}
-
+.ascii-full,
+.ascii-medium,
 .ascii-small {
     display: none;
-}
-
-@media (min-width: 565px) {
-    .ascii-full {
-        display: block;
-    }
-}
-
-@media (min-width: 346px) and (max-width: 564px) {
-    .ascii-medium {
-        display: block;
-    }
-
-    .ascii-banner {
-        font-size: 0.65rem;
-    }
-
-    .profile-pic {
-        display: none;
-    }
-}
-
-@media (max-width: 345px) {
-    .ascii-small {
-        display: block;
-    }
-
-    .profile-pic {
-        display: none;
-    }
 }
 
 .terminal-icon {
@@ -313,347 +406,11 @@ body.crt .scanline {
     vertical-align: top;
 }
 
-.text-output {
-    margin: 0;
-    line-height: 1.5rem;
-    word-break: break-word;
-}
-
-.text-blue {
-    color: var(--clr-blue);
-}
-
-.text-orange {
-    color: var(--clr-orange);
-}
-
-.text-output a {
-    color: var(--clr-pink);
-    text-decoration: none;
-}
-
-.text-output a:hover {
-    text-decoration: underline;
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Tabs navigation */
-.tabs {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: var(--clr-primary-bg);
-    display: flex;
-    justify-content: space-between;
-    /* Keep this to separate tabs and theme switcher */
-    align-items: center;
-    border-bottom: 1px solid var(--clr-border);
-    padding: 0 1rem;
-}
-
-.tab-links-container {
-    display: flex;
-    /* To group the tab links together */
-}
-
-.tab-link {
-    background: none;
-    border: none;
-    color: var(--clr-primary-txt);
-    font-family: "Fira Mono", monospace, sans-serif;
-    font-size: 1rem;
-    padding: 0rem 0.5rem;
-    cursor: pointer;
-}
-
-.tab-link.active {
-    background-color: var(--clr-primary-bg);
-    color: var(--clr-blue);
-    border-bottom: 2px solid var(--clr-blue);
-}
-
-.tab-link:hover {
-    color: var(--clr-orange);
-}
-
-.content {
-    flex: 1;
-    overflow-y: auto;
-    scrollbar-gutter: stable;
-}
-
-/* Tab content */
-.tab-content {
-    display: none;
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    /* Add padding to the content div */
-}
-
-.tab-content.active {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-#contact {
-    padding: 0 0.5rem 1.5rem 1.5rem;
-}
-
-.text-container {
-    flex-direction: row;
-    display: flex;
-    gap: 1rem;
-}
-
-.profile-pic {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* --- Retro Jumping Game --- */
-#game-container {
-    margin-top: 1.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    border: 2px solid var(--clr-border);
-    padding: 10px;
-    font-family: "Fira Mono", monospace;
-    position: relative;
-    width: 100%;
-}
-
-#game-canvas {
-    width: 100%;
-    height: 250px;
-    background-color: var(--clr-primary-bg);
-    border-bottom: 2px dashed var(--clr-border);
-    position: relative;
-    overflow: hidden;
-}
-
-#player {
-    width: 40px;
-    height: 40px;
-    background-color: var(--clr-blue);
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    transition: height 0.1s;
-    /* Updated for content/emojis */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    line-height: 1;
-    will-change: transform;
-}
-
-/* Character Selector */
-.char-select-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    min-height: 80px;
-    /* Reserve space for input to prevent jumps */
-    justify-content: center;
-}
-
-.char-select-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.player-preview {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--clr-blue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    background-color: transparent;
-    /* Default transparent unless 'box' type */
-}
-
-.retro-input {
-    background: var(--clr-primary-bg);
-    border: 1px solid var(--clr-blue);
-    color: var(--clr-primary-txt);
-    font-family: "Fira Mono", monospace;
-    padding: 5px;
-    margin-top: 5px;
-    width: 150px;
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-.retro-input:focus {
-    outline: none;
-    border-color: var(--clr-orange);
-}
-
-.obstacle {
-    width: 20px;
-    height: 20px;
-    /* Base height, JS may vary this */
-    background-color: var(--clr-red, rgb(218, 49, 49));
-    /* Fallback to CRT red */
-    position: absolute;
-    bottom: 0;
-    right: -30px;
-    will-change: transform;
-}
-
-#game-ui {
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    flex-wrap: wrap;
-    /* Allow wrapping on small screens */
-}
-
-@media (max-width: 600px) {
-    #mobile-controls {
-        display: flex !important;
-    }
-}
-
-#game-message,
-#game-start-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--clr-primary-bg);
-    border: 2px solid var(--clr-border);
-    padding: 0.8rem 1.5rem;
-    text-align: center;
-    z-index: 20;
-    width: 85%;
-    max-width: 300px;
-}
-
-#game-start-overlay p {
-    margin: 0 0 0.5rem 0;
-}
-
-#game-message {
-    display: none;
-}
-
-#game-start-overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.char-select-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    min-height: 70px;
-    /* Reduced to fit better */
-    justify-content: center;
-}
-
-.collectible {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--clr-orange);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform;
-    transition: opacity 0.2s, transform 0.2s;
-}
-
-.retro-btn {
-    background: transparent;
-    border: 2px solid var(--clr-blue);
-    color: var(--clr-blue);
-    font-family: "Fira Mono", monospace;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    font-weight: bold;
-}
-
-.retro-btn:hover {
-    background: var(--clr-blue);
-    color: var(--clr-primary-bg);
-}
-
-.blink {
-    animation: blink 1s infinite;
-    color: var(--clr-orange);
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-.contact-info {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.status-beacon {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: var(--clr-green, #2ea043);
-    border-radius: 50%;
-    margin-right: 5px;
-    box-shadow: 0 0 5px var(--clr-green, #2ea043);
-    animation: pulse 2s infinite;
-}
-
-.text-green {
-    color: var(--clr-green, #2ea043);
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: scale(1.2);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
+/* ==========================================================================
+   6. Timeline Component
+   ========================================================================== */
 .timeline {
-    border-left: 2px solid var(--clr-border);
+    border-left: 1px solid var(--clr-border);
     padding-left: 1.5rem;
 }
 
@@ -750,4 +507,217 @@ body.crt .scanline {
     display: block;
     font-size: 0.8rem;
     color: var(--clr-primary-txt);
+}
+
+/* ==========================================================================
+   7. Game Component
+   ========================================================================== */
+#game-container {
+    margin-top: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 2px solid var(--clr-border);
+    padding: 10px;
+    font-family: "Fira Mono", monospace;
+    position: relative;
+    width: 100%;
+}
+
+#game-canvas {
+    width: 100%;
+    height: 250px;
+    background-color: var(--clr-primary-bg);
+    border-bottom: 2px dashed var(--clr-border);
+    position: relative;
+    overflow: hidden;
+}
+
+#player {
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-blue);
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    transition: height 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    line-height: 1;
+    will-change: transform;
+}
+
+/* Character Selector */
+.char-select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    min-height: 70px;
+    /* Reduced to fit better */
+    justify-content: center;
+}
+
+.char-select-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-preview {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--clr-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    background-color: transparent;
+}
+
+.retro-input {
+    background: var(--clr-primary-bg);
+    border: 1px solid var(--clr-blue);
+    color: var(--clr-primary-txt);
+    font-family: "Fira Mono", monospace;
+    padding: 5px;
+    margin-top: 5px;
+    width: 150px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.retro-input:focus {
+    outline: none;
+    border-color: var(--clr-orange);
+}
+
+.obstacle {
+    width: 20px;
+    height: 20px;
+    background-color: var(--clr-red, rgb(218, 49, 49));
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    will-change: transform;
+}
+
+#game-ui {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+#game-message,
+#game-start-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--clr-primary-bg);
+    border: 2px solid var(--clr-border);
+    padding: 0.8rem 1.5rem;
+    text-align: center;
+    z-index: 20;
+    width: 85%;
+    max-width: 300px;
+}
+
+#game-start-overlay p {
+    margin: 0 0 0.5rem 0;
+}
+
+#game-message {
+    display: none;
+}
+
+#game-start-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collectible {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--clr-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.retro-btn {
+    background: transparent;
+    border: 2px solid var(--clr-blue);
+    color: var(--clr-blue);
+    font-family: "Fira Mono", monospace;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.retro-btn-small {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    background: transparent;
+    border: 2px solid var(--clr-blue);
+    color: var(--clr-blue);
+    font-family: "Fira Mono", monospace;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.retro-btn:hover {
+    background: var(--clr-blue);
+    color: var(--clr-primary-bg);
+}
+
+/* ==========================================================================
+   8. Media Queries
+   ========================================================================== */
+@media (min-width: 565px) {
+    .ascii-full {
+        display: block;
+    }
+}
+
+@media (min-width: 346px) and (max-width: 564px) {
+    .ascii-medium {
+        display: block;
+    }
+
+    .ascii-banner {
+        font-size: 0.65rem;
+    }
+
+    .profile-pic {
+        display: none;
+    }
+}
+
+@media (max-width: 345px) {
+    .ascii-small {
+        display: block;
+    }
+
+    .profile-pic {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    #mobile-controls {
+        display: flex !important;
+    }
 }
