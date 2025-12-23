@@ -191,10 +191,15 @@ timelineItems.forEach(item => {
     });
 });
 
-// Copy Email Logic (Click-to-Copy) - REMOVED per user request
-// The email link will now function as a standard mailto link.
-const emailFeedback = document.querySelector('.copy-feedback');
-
-if (emailFeedback) {
-    emailFeedback.style.display = 'none';
+// Auto-expand the first timeline item if there is sufficient vertical space
+const contentContainer = document.querySelector('.content');
+if (contentContainer && contentContainer.clientHeight > 800) {
+    const firstHeader = document.querySelector('.timeline-item-header');
+    if (firstHeader) {
+        const body = firstHeader.nextElementSibling;
+        if (body) {
+            firstHeader.classList.add('open');
+            body.style.maxHeight = "none";
+        }
+    }
 }
