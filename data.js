@@ -4,7 +4,7 @@ const timelineData = [
         date: "Sep 2024 - Dec 2025",
         location: "Soho, London",
         logo: "img/kato_applogo.jpg",
-        summary: "Delivered core features for a commercial real estate CRM, powering digital onboarding, lease management, and property workflows for agencies and landlords.",
+        summary: "Delivered core features for a proptech startup, powering digital onboarding, lease management, and property workflows for commercial realestate agencies and landlords.",
         achievements: [
             "Key contributor in a major landlord-onboarding initiative",
             "Built real-time collaboration and deal syncing using Pusher events.",
