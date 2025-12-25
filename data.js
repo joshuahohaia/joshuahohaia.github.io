@@ -5,6 +5,7 @@ const timelineData = [
         location: "Soho, London",
         logo: "img/kato_applogo.jpg",
         summary: "Delivered core features for a proptech startup, powering digital onboarding, lease management, and property workflows for commercial realestate agencies and landlords.",
+        link: "https://www.kato.app/products/landlords",
         achievements: [
             "Key contributor in a major landlord-onboarding initiative",
             "Built real-time collaboration and deal syncing using Pusher events.",
@@ -20,6 +21,7 @@ const timelineData = [
         location: "New Zealand",
         logo: "img/noderoLogo.webp",
         summary: "Contractor role delivering tailored software solutions across multiple industries, working across full-stack, frontend, and mobile projects with broad end-to-end exposure.",
+        link: "https://www.nodero.com/",
         achievements: [],
         skills: "Node.js, TypeScript, React, Azure, AWS, Flutter, C#",
         subItems: [
@@ -28,6 +30,7 @@ const timelineData = [
                 date: "Feb 2024 - Aug 2024",
                 location: "New Zealand",
                 summary: "Delivered key features of FMG’s internal insurance recording system, optimised for field agents working in low-connectivity environments.",
+                link: "https://www.nodero.com/fmg",
                 achievements: [
                     "Offline-first data capture with reliable syncing in low-connectivity environments",
                     "Integrations with Guidewire to support policy and claims workflows",
@@ -55,6 +58,7 @@ const timelineData = [
                 date: "Jun 2023 - Nov 2023",
                 location: "New Zealand",
                 summary: "Developed and deployed a cross-platform Flutter mobile application under tight semester-start deadlines, giving students fast access to essential orientation week features.",
+                link: "https://apps.apple.com/nz/app/massey-uni/id772415885",
                 achievements: [
                     "Delivered end-to-end in a compressed timeline, ensuring readiness for the semester launch",
                     "Implemented key features such as event schedules, campus information, and student resources",
@@ -69,6 +73,7 @@ const timelineData = [
                 date: "Feb 2022 - Jan 2023",
                 location: "New Zealand",
                 summary: "Delivered key Flutter features for the World Rugby SCRM application, ensuring a reliable, secure, and high-quality experience for medical and performance staff.",
+                link: "https://passport.world.rugby/player-welfare-medical/concussion-management-for-match-day-medical-staff-using-the-hia-protocol/hia-app-scrm",
                 achievements: [
                     "Ensured high reliability and performance during critical operations",
                     "Worked cross-functionally to refine requirements and deliver production--ready UI/UX",

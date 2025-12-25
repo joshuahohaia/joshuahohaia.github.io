@@ -64,6 +64,17 @@ body {
     text-decoration: underline;
 }
 
+.external-link-icon {
+    vertical-align: top;
+    margin-left: 4px;
+    stroke: currentColor;
+    display: inline-block;
+}
+
+.project-link {
+    text-decoration: none !important;
+}
+
 .text-blue {
     color: var(--clr-blue);
 }
@@ -547,7 +558,7 @@ body.crt .scanline {
     margin-top: 1.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    border: 2px solid var(--clr-border);
+    border: 1px solid var(--clr-border);
     padding: 10px;
     font-family: "Fira Mono", monospace;
     position: relative;
