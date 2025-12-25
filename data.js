@@ -13,7 +13,7 @@ const timelineData = [
             "Migrated Redux to TanStack Query, improving performance and reducing boilerplate.",
             "Delivered end-to-end features including workflow boards and agent interaction graphs."
         ],
-        skills: "React, AngularJS, TypeScript, PHP, Laravel"
+        skills: "React, AngularJS, TypeScript, PHP"
     },
     {
         title: "Software Developer @ Nodero",
