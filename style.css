@@ -50,7 +50,7 @@ body {
    ========================================================================== */
 .text-output {
     margin: 0;
-    line-height: 1.5rem;
+    line-height: 1.35rem;
     word-break: break-word;
 }
 
@@ -66,7 +66,6 @@ body {
 
 .external-link-icon {
     vertical-align: top;
-    margin-left: 4px;
     stroke: currentColor;
     display: inline-block;
 }
@@ -475,7 +474,7 @@ body.crt .scanline {
 
 .timeline-header-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     margin-bottom: 0.5rem;
 }
@@ -503,6 +502,7 @@ body.crt .scanline {
     color: var(--clr-blue);
     margin: 0;
     font-size: 1.1rem;
+    line-height: 1.1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
