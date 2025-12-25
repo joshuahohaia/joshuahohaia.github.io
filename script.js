@@ -62,6 +62,7 @@ themeSwitch.addEventListener('change', (e) => {
 
 const tabs = document.querySelectorAll('.tab-link');
 const tabContents = document.querySelectorAll('.tab-content');
+const footerLinks = document.querySelector('.footer-links');
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -77,6 +78,12 @@ tabs.forEach(tab => {
                 content.classList.remove('active');
             }
         });
+
+        if (tabId === 'contact') {
+            if (footerLinks) footerLinks.style.display = 'none';
+        } else {
+            if (footerLinks) footerLinks.style.display = 'flex';
+        }
     });
 });
 

@@ -56,10 +56,11 @@ body {
 
 .text-output a {
     color: var(--clr-pink);
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .text-output a:hover {
+    color: var(--clr-orange);
     text-decoration: underline;
 }
 
@@ -122,7 +123,15 @@ body {
     height: 90%;
     display: flex;
     flex-direction: column;
+}
+
+.main-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .content {
@@ -157,6 +166,29 @@ body {
     height: 70px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.footer-links {
+    position: absolute;
+    bottom: 0;
+    right: 1.5rem;
+    transform: translateY(50%);
+    background: var(--clr-primary-bg);
+    border: 1px solid var(--clr-border);
+    padding: 2px 8px;
+    display: flex;
+    gap: 10px;
+    font-size: 0.8rem;
+    z-index: 1000;
+}
+
+.footer-links a {
+    color: var(--clr-pink);
+    text-decoration: underline;
+}
+
+.footer-links a:hover {
+    color: var(--clr-orange);
 }
 
 /* --- CRT Effect --- */

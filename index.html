@@ -11,31 +11,32 @@
 
 <body>
     <div id="main-container">
-        <div class="scanline"></div>
-        <nav class="tabs">
-            <div class="tab-links-container">
-                <button class="tab-link active" data-tab="home">home</button>
-                <button class="tab-link" data-tab="contact">contact</button>
-            </div>
-            <div class="nav-group-right">
-                <div class="crt-control">
-                    <label for="crt-intensity">CRT</label>
-                    <input type="range" id="crt-intensity" min="0" max="100" value="0" step="1">
+        <div class="main-inner">
+            <div class="scanline"></div>
+            <nav class="tabs">
+                <div class="tab-links-container">
+                    <button class="tab-link active" data-tab="home">home</button>
+                    <button class="tab-link" data-tab="contact">contact</button>
                 </div>
-                <div id="theme-switch-container">
-                    <input type="checkbox" id="theme-switch-checkbox">
-                    <label class="theme-switch" for="theme-switch-checkbox">
-                        <span class="light-mode">[◧]</span>
-                        <span class="dark-mode">[◨]</span>
-                    </label>
+                <div class="nav-group-right">
+                    <div class="crt-control">
+                        <label for="crt-intensity">CRT</label>
+                        <input type="range" id="crt-intensity" min="0" max="100" value="0" step="1">
+                    </div>
+                    <div id="theme-switch-container">
+                        <input type="checkbox" id="theme-switch-checkbox">
+                        <label class="theme-switch" for="theme-switch-checkbox">
+                            <span class="light-mode">[◧]</span>
+                            <span class="dark-mode">[◨]</span>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        </nav>
-        <div class="content">
-            <div id="home" class="tab-content active">
-                <!-- Full ASCII -->
-                <div class="ascii-container ascii-full">
-                    <pre class="ascii-banner">
+            </nav>
+            <div class="content">
+                <div id="home" class="tab-content active">
+                    <!-- Full ASCII -->
+                    <div class="ascii-container ascii-full">
+                        <pre class="ascii-banner">
 <div class="ascii-line">
 <span class="terminal-icon">
 __  
@@ -49,11 +50,11 @@ __
     \ \/ _ \/ __| '_ \| | | |/ _` |  / /_/ / _ \| '_ \ / _` | |/ _` |
  /\_/ / (_) \__ \ | | | |_| | (_| | / __  / (_) | | | | (_| | | (_| |
  \___/ \___/|___/_| |_|\__,_|\__,_| \/ /_/ \___/|_| |_|\__,_|_|\__,_|</pre>
-                </div>
+                    </div>
 
-                <!-- Medium ASCII -->
-                <div class="ascii-container ascii-medium">
-                    <pre class="ascii-banner">
+                    <!-- Medium ASCII -->
+                    <div class="ascii-container ascii-medium">
+                        <pre class="ascii-banner">
 <div class="ascii-line">
 <div class="terminal-icon">
 __  
@@ -73,11 +74,11 @@ __
    / /_/ / _ \| '_ \ / _` | |/ _` | 
   / __  / (_) | | | | (_| | | (_| | 
   \/ /_/ \___/|_| |_|\__,_|_|\__,_|</div></pre>
-                </div>
+                    </div>
 
-                <!-- Small ASCII -->
-                <div class="ascii-container ascii-small">
-                    <pre class="ascii-banner">
+                    <!-- Small ASCII -->
+                    <div class="ascii-container ascii-small">
+                        <pre class="ascii-banner">
 <div class="ascii-line">
 <span class="terminal-icon">
 __  
@@ -91,71 +92,78 @@ __
     \ \/ /_/ / 
  /\_/ / __  / 
  \___/\/ /_/</div></pre>
+                    </div>
+
+                    <!-- Text -->
+                    <div class="text-container">
+                        <a href="https://github.com/joshuahohaia" target="_blank" rel="noopener noreferrer">
+                            <img src="https://avatars.githubusercontent.com/u/58153260?v=4" alt="Joshua Hohaia"
+                                class="profile-pic">
+                        </a>
+                        <p class="text-output">Hi, I'm Josh<br>A <span class="text-blue">frontend developer</span>
+                            currently
+                            building software in <span class="text-blue">📍London, UK</span><br>My stack includes <span
+                                class="text-orange">React, Typescript, and Javascript</span></p>
+                    </div>
+                    <h2 class="text-output">Experience</h2>
+                    <div class="timeline" id="experience-timeline">
+                        <!-- Timeline items will be rendered here by script.js -->
+                    </div>
                 </div>
 
-                <!-- Text -->
-                <div class="text-container">
-                    <img onClick="window.open('https://github.com/joshuahohaia')"
-                        src="https://avatars.githubusercontent.com/u/58153260?v=4" alt="Joshua Hohaia"
-                        class="profile-pic">
-                    <p class="text-output">Hi, I'm Josh<br>A <span class="text-blue">frontend developer</span> currently
-                        building software in <span class="text-blue">📍London, UK</span><br>My stack includes <span
-                            class="text-orange">React, Typescript, and Javascript</span></p>
-                </div>
-
-                <h2 class="text-output">Experience</h2>
-                <div class="timeline" id="experience-timeline">
-                    <!-- Timeline items will be rendered here by script.js -->
-                </div>
-            </div>
-
-            <div id="contact" class="tab-content">
+                <div id="contact" class="tab-content">
 
 
-                <div id="game-container" class="retro-border"
-                    aria-label="Interactive game: Collect letters to spell Joshua. Use Space or Tap to jump."
-                    role="application">
-                    <div id="game-canvas" aria-hidden="true">
-                        <div id="player" class="game-entity"></div>
-                        <div id="game-start-overlay">
-                            <p>Collect letters to spell JOSHUA</p>
+                    <div id="game-container" class="retro-border"
+                        aria-label="Interactive game: Collect letters to spell Joshua. Use Space or Tap to jump."
+                        role="application">
+                        <div id="game-canvas" aria-hidden="true">
+                            <div id="player" class="game-entity"></div>
+                            <div id="game-start-overlay">
+                                <p>Collect letters to spell JOSHUA</p>
 
-                            <!-- Character Selector -->
-                            <div class="char-select-container">
-                                <p style="font-size: 0.8rem; margin-bottom: 5px;">CHOOSE PLAYER</p>
-                                <div class="char-select-row">
-                                    <button id="prev-char" class="retro-btn-small">&lt;</button>
-                                    <div id="char-preview" class="player-preview">🛸</div>
-                                    <button id="next-char" class="retro-btn-small">&gt;</button>
+                                <!-- Character Selector -->
+                                <div class="char-select-container">
+                                    <p style="font-size: 0.8rem; margin-bottom: 5px;">CHOOSE PLAYER</p>
+                                    <div class="char-select-row">
+                                        <button id="prev-char" class="retro-btn-small">&lt;</button>
+                                        <div id="char-preview" class="player-preview">🛸</div>
+                                        <button id="next-char" class="retro-btn-small">&gt;</button>
+                                    </div>
+                                    <input type="text" id="github-username-input" class="retro-input"
+                                        placeholder="GitHub Username" style="visibility: hidden;">
                                 </div>
-                                <input type="text" id="github-username-input" class="retro-input"
-                                    placeholder="GitHub Username" style="visibility: hidden;">
+
+                                <button id="start-btn" class="retro-btn">PLAY</button>
                             </div>
-
-                            <button id="start-btn" class="retro-btn">PLAY</button>
+                            <div id="game-message">
+                                <p id="game-message-text" class="blink">GAME OVER</p>
+                                <button id="restart-btn" class="retro-btn">TRY AGAIN</button>
+                            </div>
                         </div>
-                        <div id="game-message">
-                            <p id="game-message-text" class="blink">GAME OVER</p>
-                            <button id="restart-btn" class="retro-btn">TRY AGAIN</button>
+                        <div id="game-ui" aria-hidden="true">
+                            <p>Jump: [SPACE] or Tap</p>
+                            <p>COLLECT: <span id="letter-display">_ _ _ _ _ _</span></p>
+                        </div>
+                        <!-- Mobile Controls -->
+                        <div id="mobile-controls" style="display: none; justify-content: center; margin-top: 10px;"
+                            aria-hidden="true">
+                            <button id="mobile-jump-btn" class="retro-btn" style="width: 100%;">JUMP</button>
                         </div>
                     </div>
-                    <div id="game-ui" aria-hidden="true">
-                        <p>Jump: [SPACE] or Tap</p>
-                        <p>COLLECT: <span id="letter-display">_ _ _ _ _ _</span></p>
-                    </div>
-                    <!-- Mobile Controls -->
-                    <div id="mobile-controls" style="display: none; justify-content: center; margin-top: 10px;"
-                        aria-hidden="true">
-                        <button id="mobile-jump-btn" class="retro-btn" style="width: 100%;">JUMP</button>
-                    </div>
+                    <p class="text-output">
+                        <a href="mailto:joshua.hohaia@gmail.com" class="email-copy-link">joshua.hohaia@gmail.com</a>
+                        <br>GitHub: <a href="https://github.com/joshuahohaia" target="_blank"
+                            rel="noopener noreferrer">@joshuahohaia</a>
+                        <br>Linkedin: <a href="https://linkedin.com/in/joshuahohaia" target="_blank"
+                            rel="noopener noreferrer">@joshuahohaia</a>
+                    </p>
                 </div>
-                <p class="text-output">
-                    <a href="mailto:joshua.hohaia@gmail.com" class="email-copy-link">joshua.hohaia@gmail.com</a>
-                    <br>GitHub: <a href="https://github.com/joshuahohaia" target="_blank">@joshuahohaia</a>
-                    <br>Linkedin: <a href="https://linkedin.com/in/joshuahohaia" target="_blank">@joshuahohaia</a>
-                </p>
-
             </div>
+        </div>
+        <div class="footer-links">
+            <a href="https://github.com/joshuahohaia" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://linkedin.com/in/joshuahohaia" target="_blank" rel="noopener noreferrer">linkedin</a>
         </div>
     </div>
     <script src="data.js"></script>
