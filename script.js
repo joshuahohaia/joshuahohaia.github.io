@@ -60,33 +60,6 @@ themeSwitch.addEventListener('change', (e) => {
     }
 });
 
-const tabs = document.querySelectorAll('.tab-link');
-const tabContents = document.querySelectorAll('.tab-content');
-const footerLinks = document.querySelector('.footer-links');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const tabId = tab.dataset.tab;
-
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        tabContents.forEach(content => {
-            if (content.id === tabId) {
-                content.classList.add('active');
-            } else {
-                content.classList.remove('active');
-            }
-        });
-
-        if (tabId === 'contact') {
-            if (footerLinks) footerLinks.style.display = 'none';
-        } else {
-            if (footerLinks) footerLinks.style.display = 'flex';
-        }
-    });
-});
-
 // Render Timeline Data
 const timelineContainer = document.getElementById('experience-timeline');
 
