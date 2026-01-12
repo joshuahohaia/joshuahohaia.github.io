@@ -7,11 +7,11 @@ const timelineData = [
         summary: "Delivered core features for a proptech startup, powering digital onboarding, lease management, and property workflows for commercial realestate agencies and landlords.",
         link: "https://www.kato.app/products/landlords",
         achievements: [
-            "Key contributor in a major landlord-onboarding initiative",
-            "Built real-time collaboration and deal syncing using Pusher events.",
-            "Reduced legacy AngularJS usage from 45% to 15% via React migration.",
-            "Migrated Redux to TanStack Query, improving performance and reducing boilerplate.",
-            "Delivered end-to-end features including workflow boards and agent interaction graphs."
+            "Played a key role in the deals in progress initiative, helping drive a 20% increase in landlord signups and supporting long-term platform growth",
+            "Collaborated with product and design to deliver end-to-end features including workflow boards, agent interaction graphs, and landlord mapping tools",
+            "Built real-time collaboration and deal-progress syncing with Pusher Channels and React Query",
+            "Migrated key components from Angular to React, reducing legacy code usage from 45% to 15%",
+            "Replaced Redux with TanStack Query to improve server-state management and improve caching"
         ],
         skills: "React, AngularJS, TypeScript, PHP"
     },
@@ -45,6 +45,7 @@ const timelineData = [
                 date: "Nov 2023 - Jan 2024",
                 location: "New Zealand",
                 summary: "Developed an Electron application, seamlessly integrating vehicle weighbridge and thermal printing devices.",
+                link: "https://www.nodero.com/palmerston-north-city-council",
                 achievements: [
                     "Robust serial/USB communication handling",
                     "Automated receipt generation and print workflows",
