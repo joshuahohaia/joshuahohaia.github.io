@@ -8,10 +8,6 @@ Personal portfolio website designed to showcase my experience, skills, and proje
 
 *   **Retro CRT Aesthetic:** Custom CRT scanline and text-shadow effects with a user-adjustable intensity slider. Implementation uses CSS variables and repeating linear gradients to simulate a cathode-ray tube display.
 *   **Theme System:** Toggle between Light and Dark modes. System preferences are detected automatically, and the choice is persisted via `localStorage`.
-*   **Interactive Game:** A built-in "Jumping" game where you collect letters to spell "JOSHUA". 
-    *   **Character Selection:** Choose between different emojis or pull your own GitHub avatar.
-    *   **Controls:** Supports Space/Arrow keys for desktop and a dedicated touch button for mobile.
-    *   **Celebration:** Features a custom confetti system triggered upon victory.
 *   **Responsive ASCII Art:** Adaptive ASCII banners that switch between full, medium, and small versions based on screen width.
 *   **Experience Timeline:** An expandable, data-driven timeline. Nested experience items (like contract roles) are supported, and the first item auto-expands on large screens.
 *   **No Frameworks:** Built entirely with vanilla HTML, CSS, and JavaScript for maximum performance and zero dependencies.
