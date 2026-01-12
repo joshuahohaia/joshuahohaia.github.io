@@ -194,3 +194,25 @@ if (contentContainer && contentContainer.clientHeight > 800) {
         }
     }
 }
+
+// Hide nav social icons when contact section is in view
+const contactSection = document.getElementById('contact-section');
+const navSocialLinks = document.querySelectorAll('.nav-social-link');
+
+if (contactSection && navSocialLinks.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            navSocialLinks.forEach(link => {
+                if (entry.isIntersecting) {
+                    link.classList.add('hidden');
+                } else {
+                    link.classList.remove('hidden');
+                }
+            });
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    observer.observe(contactSection);
+}

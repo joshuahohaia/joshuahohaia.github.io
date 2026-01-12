@@ -240,7 +240,16 @@ body {
 .tab-content.active {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+
+/* Section Headers */
+.tab-content h2.text-output {
+    margin-top: 2rem;
+}
+
+.tab-content h2.text-output:first-of-type {
+    margin-top: 0.5rem;
 }
 
 #contact {
@@ -703,6 +712,51 @@ body.crt .scanline {
     font-size: 0.85rem;
     line-height: 1.4;
     opacity: 0.85;
+}
+
+/* ==========================================================================
+   6d. Contact Section
+   ========================================================================== */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--clr-border);
+    text-decoration: none;
+    color: var(--clr-primary-txt);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-item:hover {
+    border-color: var(--clr-blue);
+    transform: translateX(4px);
+}
+
+.contact-label {
+    font-weight: bold;
+    color: var(--clr-blue);
+}
+
+.contact-value {
+    opacity: 0.85;
+}
+
+/* Nav social links hide animation */
+.nav-social-link {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.nav-social-link.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
 }
 
 .timeline-item-location {
