@@ -101,19 +101,7 @@ function createTimelineItem(data) {
         headerContent += `<span class="timeline-item-initial-summary">${data.summary}</span>`;
     }
 
-    if (data.link) {
-        headerContent += `<a href="${data.link}" class="timeline-item-link" target="_blank" rel="noopener noreferrer">View</a>`;
-    }
-
     header.innerHTML = headerContent;
-
-    const linkElement = header.querySelector('.timeline-item-link');
-    if (linkElement) {
-        linkElement.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    }
-
     item.appendChild(header);
 
     // Body Construction
@@ -143,6 +131,21 @@ function createTimelineItem(data) {
             tag.textContent = skill;
             skillsContainer.appendChild(tag);
         });
+
+        if (data.link) {
+            const linkTag = document.createElement('a');
+            linkTag.href = data.link;
+            linkTag.target = "_blank";
+            linkTag.rel = "noopener noreferrer";
+            linkTag.className = 'timeline-skill-tag timeline-link-tag';
+            linkTag.innerHTML = 'View Project <span style="font-size: 0.8em;">↗</span>';
+            
+            linkTag.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            skillsContainer.appendChild(linkTag);
+        }
 
         body.appendChild(skillsContainer);
     }

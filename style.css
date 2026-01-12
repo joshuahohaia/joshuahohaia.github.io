@@ -638,6 +638,23 @@ body.crt .scanline {
     opacity: 0.8;
 }
 
+.timeline-link-tag {
+    text-decoration: none;
+    cursor: pointer;
+    border-color: var(--clr-blue);
+    color: var(--clr-blue);
+    opacity: 1;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.timeline-link-tag:hover {
+    background-color: var(--clr-blue);
+    color: var(--clr-primary-bg);
+}
+
 .timeline-item-header:hover .timeline-item-title::before {
     color: var(--clr-orange);
 }
@@ -651,22 +668,6 @@ body.crt .scanline {
     margin-top: 0.5rem;
     font-size: 1rem;
     color: var(--clr-primary-txt);
-}
-
-.timeline-item-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--clr-blue);
-    text-decoration: none;
-    border-bottom: 1px dashed var(--clr-blue);
-    transition: color 0.2s, border-bottom-color 0.2s;
-    width: fit-content;
-}
-
-.timeline-item-link:hover {
-    color: var(--clr-orange);
-    border-bottom-color: var(--clr-orange);
 }
 
 .timeline-item-body {
@@ -725,6 +726,12 @@ body.crt .scanline {
     opacity: 1;
 }
 
+a.skill-item {
+    text-decoration: none;
+    color: var(--clr-primary-txt);
+    cursor: pointer;
+}
+
 /* ==========================================================================
    6c. Experiments Section
    ========================================================================== */
@@ -741,6 +748,7 @@ body.crt .scanline {
     text-decoration: none;
     color: var(--clr-primary-txt);
     transition: border-color 0.2s, transform 0.2s;
+    position: relative;
 }
 
 .experiment-card:hover {
@@ -750,21 +758,29 @@ body.crt .scanline {
 
 .experiment-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin-bottom: 0.5rem;
 }
 
 .experiment-title {
     font-weight: bold;
     color: var(--clr-blue);
+    padding-right: 5.5rem;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .experiment-lang {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     font-size: 0.75rem;
     padding: 0.15rem 0.4rem;
     border: 1px solid var(--clr-border);
     color: var(--clr-orange);
+    background-color: var(--clr-primary-bg);
 }
 
 .experiment-desc {
@@ -806,6 +822,19 @@ body.crt .scanline {
 
 .contact-value {
     opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .contact-value {
+        font-size: 0.9rem;
+        word-break: break-all;
+    }
 }
 
 /* Nav social links hide animation */
