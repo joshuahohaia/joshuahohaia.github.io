@@ -392,6 +392,13 @@ body.crt .scanline {
     gap: 0.5rem;
 }
 
+/* Nav Logo */
+.nav-logo {
+    color: var(--clr-primary-txt);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
 /* CRT Control Slider */
 .crt-control {
     display: flex;
@@ -613,6 +620,89 @@ body.crt .scanline {
     border-left: 2px solid var(--clr-border);
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+/* ==========================================================================
+   6b. Skills Section
+   ========================================================================== */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--clr-border);
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.skill-item:hover {
+    border-color: var(--clr-blue);
+    color: var(--clr-blue);
+}
+
+.skill-item i {
+    font-size: 1.25rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.skill-item:hover i {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   6c. Experiments Section
+   ========================================================================== */
+.experiments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.experiment-card {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--clr-border);
+    text-decoration: none;
+    color: var(--clr-primary-txt);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.experiment-card:hover {
+    border-color: var(--clr-blue);
+    transform: translateY(-2px);
+}
+
+.experiment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.experiment-title {
+    font-weight: bold;
+    color: var(--clr-blue);
+}
+
+.experiment-lang {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--clr-border);
+    color: var(--clr-orange);
+}
+
+.experiment-desc {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    opacity: 0.85;
 }
 
 .timeline-item-location {
