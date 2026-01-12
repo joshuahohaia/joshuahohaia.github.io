@@ -116,7 +116,7 @@ body {
     position: relative;
     border: 1px solid transparent;
     max-width: 800px;
-    width: 100%;
+    width: calc(100% - 2rem);
     margin: 1rem;
     padding: 0;
     background: var(--clr-primary-bg);
@@ -651,6 +651,22 @@ body.crt .scanline {
     margin-top: 0.5rem;
     font-size: 1rem;
     color: var(--clr-primary-txt);
+}
+
+.timeline-item-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--clr-blue);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--clr-blue);
+    transition: color 0.2s, border-bottom-color 0.2s;
+    width: fit-content;
+}
+
+.timeline-item-link:hover {
+    color: var(--clr-orange);
+    border-bottom-color: var(--clr-orange);
 }
 
 .timeline-item-body {

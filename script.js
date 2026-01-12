@@ -101,7 +101,19 @@ function createTimelineItem(data) {
         headerContent += `<span class="timeline-item-initial-summary">${data.summary}</span>`;
     }
 
+    if (data.link) {
+        headerContent += `<a href="${data.link}" class="timeline-item-link" target="_blank" rel="noopener noreferrer">View</a>`;
+    }
+
     header.innerHTML = headerContent;
+
+    const linkElement = header.querySelector('.timeline-item-link');
+    if (linkElement) {
+        linkElement.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
     item.appendChild(header);
 
     // Body Construction
