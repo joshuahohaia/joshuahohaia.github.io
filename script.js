@@ -1,3 +1,9 @@
+// Enable scrolling after initial animation completes
+setTimeout(() => {
+    const content = document.querySelector('.content');
+    if (content) content.classList.add('scrollable');
+}, 1800);
+
 const crtIntensitySlider = document.getElementById('crt-intensity');
 
 function updateCrtIntensity(intensity) {
@@ -60,33 +66,6 @@ themeSwitch.addEventListener('change', (e) => {
     }
 });
 
-const tabs = document.querySelectorAll('.tab-link');
-const tabContents = document.querySelectorAll('.tab-content');
-const footerLinks = document.querySelector('.footer-links');
-
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        const tabId = tab.dataset.tab;
-
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        tabContents.forEach(content => {
-            if (content.id === tabId) {
-                content.classList.add('active');
-            } else {
-                content.classList.remove('active');
-            }
-        });
-
-        if (tabId === 'contact') {
-            if (footerLinks) footerLinks.style.display = 'none';
-        } else {
-            if (footerLinks) footerLinks.style.display = 'flex';
-        }
-    });
-});
-
 // Render Timeline Data
 const timelineContainer = document.getElementById('experience-timeline');
 
@@ -142,21 +121,18 @@ function createTimelineItem(data) {
 
     // Skills
     if (data.skills) {
-        const skillsP = document.createElement('p');
-        skillsP.className = 'text-output';
-        skillsP.innerHTML = `<strong>Skills:</strong> ${data.skills}`;
+        const skillsContainer = document.createElement('div');
+        skillsContainer.className = 'timeline-skills';
 
-        if (data.link) {
-            skillsP.innerHTML += ` <a href="${data.link}" target="_blank" rel="noopener noreferrer" title="View Project" class="project-link">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="external-link-icon">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-            </a>`;
-        }
+        const skillsArray = data.skills.split(', ');
+        skillsArray.forEach(skill => {
+            const tag = document.createElement('span');
+            tag.className = 'timeline-skill-tag';
+            tag.textContent = skill;
+            skillsContainer.appendChild(tag);
+        });
 
-        body.appendChild(skillsP);
+        body.appendChild(skillsContainer);
     }
 
     // Sub-items (Recursive)
@@ -220,4 +196,26 @@ if (contentContainer && contentContainer.clientHeight > 800) {
             body.style.maxHeight = "none";
         }
     }
+}
+
+// Hide nav social icons when contact section is in view
+const contactSection = document.getElementById('contact-section');
+const navSocialLinks = document.querySelectorAll('.nav-social-link');
+
+if (contactSection && navSocialLinks.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            navSocialLinks.forEach(link => {
+                if (entry.isIntersecting) {
+                    link.classList.add('hidden');
+                } else {
+                    link.classList.remove('hidden');
+                }
+            });
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    observer.observe(contactSection);
 }

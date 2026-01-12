@@ -448,26 +448,6 @@ if (mobileJumpBtn) mobileJumpBtn.addEventListener('click', (e) => {
 startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', startGame);
 
-// Ensure tabs don't auto-start, but maybe reset if leaving tab?
-const contactTabBtn = document.querySelector('button[data-tab="contact"]');
-const homeTabBtn = document.querySelector('button[data-tab="home"]');
-
-contactTabBtn.addEventListener('click', () => {
-    // Show start overlay if game not running
-    if (!isGameRunning) {
-        gameStartOverlay.style.display = 'flex';
-        gameMessage.style.display = 'none';
-    }
-});
-
-homeTabBtn.addEventListener('click', () => {
-    if (isGameRunning) {
-        stopGame(false); // Stop loop
-        gameMessage.style.display = 'none'; // Hide game over screen
-        gameStartOverlay.style.display = 'flex'; // Reset to start
-    }
-});
-
 // --- Confetti Logic ---
 let confettiParticles = [];
 let confettiFrameId;
