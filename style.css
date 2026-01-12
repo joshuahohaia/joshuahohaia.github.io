@@ -124,7 +124,7 @@ body {
    ========================================================================== */
 #main-container {
     position: relative;
-    border: 1px solid var(--clr-border);
+    border: 1px solid transparent;
     max-width: 800px;
     width: 100%;
     margin: 1rem;
@@ -135,6 +135,61 @@ body {
     flex-direction: column;
 }
 
+/* Border Drawing Animation */
+.border-line {
+    position: absolute;
+    background: var(--clr-border);
+    z-index: 10;
+}
+
+.border-top {
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    animation: draw-horizontal 0.4s ease-out 0.1s forwards;
+}
+
+.border-right {
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 0;
+    animation: draw-vertical 0.4s ease-out 0.5s forwards;
+}
+
+.border-bottom {
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    width: 0;
+    animation: draw-horizontal-reverse 0.4s ease-out 0.9s forwards;
+}
+
+.border-left {
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 0;
+    animation: draw-vertical-reverse 0.4s ease-out 1.3s forwards;
+}
+
+@keyframes draw-horizontal {
+    to { width: 100%; }
+}
+
+@keyframes draw-horizontal-reverse {
+    to { width: 100%; }
+}
+
+@keyframes draw-vertical {
+    to { height: 100%; }
+}
+
+@keyframes draw-vertical-reverse {
+    to { height: 100%; }
+}
+
 .main-inner {
     width: 100%;
     height: 100%;
@@ -142,6 +197,33 @@ body {
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    opacity: 0;
+    animation: fade-in 0.5s ease-out 1.7s forwards;
+}
+
+@keyframes fade-in {
+    to { opacity: 1; }
+}
+
+/* Reduced motion: skip animations */
+@media (prefers-reduced-motion: reduce) {
+    .border-line {
+        animation: none;
+    }
+    .border-top, .border-bottom {
+        width: 100%;
+    }
+    .border-right, .border-left {
+        height: 100%;
+    }
+    .main-inner {
+        opacity: 1;
+        animation: none;
+    }
+    .tabs::after {
+        width: 100%;
+        animation: none;
+    }
 }
 
 .content {
@@ -288,8 +370,19 @@ body.crt .scanline {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--clr-border);
+    border-bottom: 1px solid transparent;
     padding: 0 1rem;
+}
+
+.tabs::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background: var(--clr-border);
+    animation: draw-horizontal 0.3s ease-out 1.7s forwards;
 }
 
 .nav-group-left,
