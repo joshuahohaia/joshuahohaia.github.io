@@ -50,11 +50,9 @@ function setLightTheme() {
     localStorage.setItem('theme', 'light');
 }
 
-if (currentTheme) {
-    if (currentTheme === 'dark') {
-        setDarkTheme();
-    }
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+if (currentTheme === 'light') {
+    setLightTheme();
+} else {
     setDarkTheme();
 }
 
