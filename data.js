@@ -20,7 +20,7 @@ const timelineData = [
         date: "Jul 2021 - Sep 2024",
         location: "New Zealand",
         logo: "img/noderoLogo.webp",
-        summary: "Contractor role delivering tailored software solutions across multiple industries, working across full-stack, frontend, and mobile projects with broad end-to-end exposure.",
+        summary: "Agency-based contract role delivering tailored software solutions across multiple industries, working across full-stack, frontend, and mobile projects with broad end-to-end exposure.",
         link: "https://www.nodero.com/",
         achievements: [],
         skills: "Node.js, TypeScript, React, Azure, AWS, Flutter, C#",

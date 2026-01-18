@@ -165,19 +165,27 @@ body {
 }
 
 @keyframes draw-horizontal {
-    to { width: 100%; }
+    to {
+        width: 100%;
+    }
 }
 
 @keyframes draw-horizontal-reverse {
-    to { width: 100%; }
+    to {
+        width: 100%;
+    }
 }
 
 @keyframes draw-vertical {
-    to { height: 100%; }
+    to {
+        height: 100%;
+    }
 }
 
 @keyframes draw-vertical-reverse {
-    to { height: 100%; }
+    to {
+        height: 100%;
+    }
 }
 
 .main-inner {
@@ -192,7 +200,9 @@ body {
 }
 
 @keyframes fade-in {
-    to { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Reduced motion: skip animations */
@@ -200,25 +210,33 @@ body {
     .border-line {
         animation: none;
     }
-    .border-top, .border-bottom {
+
+    .border-top,
+    .border-bottom {
         width: 100%;
     }
-    .border-right, .border-left {
+
+    .border-right,
+    .border-left {
         height: 100%;
     }
+
     .main-inner {
         opacity: 1;
         animation: none;
     }
+
     .tabs::after {
         width: 100%;
         animation: none;
     }
+
     .nav-group-left,
     .nav-group-right {
         opacity: 1;
         animation: none;
     }
+
     .content {
         overflow-y: auto;
     }
@@ -265,7 +283,7 @@ body {
 .tab-content.active {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 /* Section Headers */
