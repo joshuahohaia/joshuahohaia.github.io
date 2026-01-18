@@ -312,6 +312,11 @@ body {
     cursor: pointer;
 }
 
+.profile-pic:hover {
+    filter: brightness(1.1);
+    transition: filter 0.2s;
+}
+
 /* Social Icons in Nav */
 .nav-social-link {
     display: flex;
