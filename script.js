@@ -137,7 +137,7 @@ function createTimelineItem(data) {
             linkTag.rel = "noopener noreferrer";
             linkTag.className = 'timeline-skill-tag timeline-link-tag';
             linkTag.innerHTML = 'View Project <span style="font-size: 0.8em;">↗</span>';
-            
+
             linkTag.addEventListener('click', (e) => {
                 e.stopPropagation();
             });
@@ -199,17 +199,17 @@ timelineItems.forEach(item => {
 });
 
 // Auto-expand the first timeline item if there is sufficient vertical space
-const contentContainer = document.querySelector('.content');
-if (contentContainer && contentContainer.clientHeight > 800) {
-    const firstHeader = document.querySelector('.timeline-item-header');
-    if (firstHeader) {
-        const body = firstHeader.nextElementSibling;
-        if (body) {
-            firstHeader.classList.add('open');
-            body.style.maxHeight = "none";
-        }
-    }
-}
+// const contentContainer = document.querySelector('.content');
+// if (contentContainer && contentContainer.clientHeight > 800) {
+//     const firstHeader = document.querySelector('.timeline-item-header');
+//     if (firstHeader) {
+//         const body = firstHeader.nextElementSibling;
+//         if (body) {
+//             firstHeader.classList.add('open');
+//             body.style.maxHeight = "none";
+//         }
+//     }
+// }
 
 // Hide nav social icons when contact section is in view
 const contactSection = document.getElementById('contact-section');
