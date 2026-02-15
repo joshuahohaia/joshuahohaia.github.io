@@ -232,3 +232,180 @@ if (contactSection && navSocialLinks.length > 0) {
 
     observer.observe(contactSection);
 }
+
+// ASCII Ripple Animation Controller - Mouse position based effect
+const AsciiScramble = {
+    containers: [],
+    originalTexts: new Map(),
+    scrambleChars: '/\\|_-=+*#@%&?!<>[]{}()~',
+
+    config: {
+        tickInterval: 50,
+        rippleRadius: 8,         // Character radius for scramble effect
+        decodeSpeed: 0.15,       // Chance per tick for distant chars to decode
+        scrambleIntensity: 0.7   // Chance for chars in radius to scramble
+    },
+
+    init() {
+        const selectors = ['.ascii-full', '.ascii-medium', '.ascii-small'];
+        selectors.forEach(selector => {
+            const container = document.querySelector(selector);
+            if (container) {
+                this.containers.push(container);
+                this.storeOriginalText(container);
+                this.bindEvents(container);
+            }
+        });
+    },
+
+    storeOriginalText(container) {
+        const asciiLine = container.querySelector('.ascii-line');
+        if (!asciiLine) return;
+
+        const text = asciiLine.textContent;
+        const lines = text.split('\n');
+
+        this.originalTexts.set(container, {
+            node: asciiLine,
+            text: text,
+            lines: lines,
+            charGrid: lines.map(line => line.split('')),
+            scrambleGrid: lines.map(line => new Array(line.length).fill(false)),
+            mouseCol: -100,
+            mouseRow: -100,
+            isHovering: false,
+            intervalId: null
+        });
+    },
+
+    bindEvents(container) {
+        container.addEventListener('mouseenter', () => {
+            const data = this.originalTexts.get(container);
+            if (!data) return;
+            data.isHovering = true;
+            this.startAnimation(container);
+        });
+
+        container.addEventListener('mouseleave', () => {
+            const data = this.originalTexts.get(container);
+            if (!data) return;
+            data.isHovering = false;
+            data.mouseCol = -100;
+            data.mouseRow = -100;
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            this.updateMousePosition(container, e);
+        });
+    },
+
+    updateMousePosition(container, e) {
+        const data = this.originalTexts.get(container);
+        if (!data) return;
+
+        const asciiLine = data.node;
+        const rect = asciiLine.getBoundingClientRect();
+        const style = getComputedStyle(asciiLine);
+        const fontSize = parseFloat(style.fontSize);
+
+        // Approximate character dimensions for monospace font
+        const charWidth = fontSize * 0.6;
+        const lineHeight = parseFloat(style.lineHeight) || fontSize * 1.1;
+
+        const relX = e.clientX - rect.left;
+        const relY = e.clientY - rect.top;
+
+        data.mouseCol = Math.floor(relX / charWidth);
+        data.mouseRow = Math.floor(relY / lineHeight);
+    },
+
+    startAnimation(container) {
+        const data = this.originalTexts.get(container);
+        if (!data || data.intervalId) return;
+
+        data.intervalId = setInterval(() => {
+            this.rippleTick(container);
+        }, this.config.tickInterval);
+    },
+
+    rippleTick(container) {
+        if (getComputedStyle(container).display === 'none') return;
+
+        const data = this.originalTexts.get(container);
+        if (!data) return;
+
+        const { charGrid, scrambleGrid, mouseCol, mouseRow, isHovering } = data;
+        let allDecoded = true;
+
+        // Update scramble states based on distance from cursor
+        for (let row = 0; row < charGrid.length; row++) {
+            for (let col = 0; col < charGrid[row].length; col++) {
+                const char = charGrid[row][col];
+
+                // Skip whitespace
+                if (char === ' ' || char === '\n' || char === '\r') continue;
+
+                // Calculate distance from cursor (in character units)
+                const distance = Math.sqrt(
+                    Math.pow(col - mouseCol, 2) +
+                    Math.pow((row - mouseRow) * 2, 2) // Weight rows more (ASCII is wider than tall)
+                );
+
+                if (isHovering && distance < this.config.rippleRadius) {
+                    // Inside ripple radius - chance to scramble based on proximity
+                    const proximity = 1 - (distance / this.config.rippleRadius);
+                    if (Math.random() < this.config.scrambleIntensity * proximity) {
+                        scrambleGrid[row][col] = true;
+                    }
+                } else {
+                    // Outside radius or not hovering - chance to decode
+                    if (scrambleGrid[row][col] && Math.random() < this.config.decodeSpeed) {
+                        scrambleGrid[row][col] = false;
+                    }
+                }
+
+                if (scrambleGrid[row][col]) {
+                    allDecoded = false;
+                }
+            }
+        }
+
+        // Render the current state
+        this.render(container);
+
+        // Stop animation when fully decoded and not hovering
+        if (!isHovering && allDecoded && data.intervalId) {
+            clearInterval(data.intervalId);
+            data.intervalId = null;
+        }
+    },
+
+    render(container) {
+        const data = this.originalTexts.get(container);
+        if (!data) return;
+
+        const { charGrid, scrambleGrid } = data;
+        const lines = [];
+
+        for (let row = 0; row < charGrid.length; row++) {
+            let line = '';
+            for (let col = 0; col < charGrid[row].length; col++) {
+                const char = charGrid[row][col];
+
+                if (scrambleGrid[row][col] && char !== ' ' && char !== '\n' && char !== '\r') {
+                    line += this.scrambleChars[Math.floor(Math.random() * this.scrambleChars.length)];
+                } else {
+                    line += char;
+                }
+            }
+            lines.push(line);
+        }
+
+        data.node.textContent = lines.join('\n');
+    }
+};
+
+// Initialize after page animations complete
+setTimeout(() => {
+    AsciiScramble.init();
+}, 2000);

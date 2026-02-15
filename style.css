@@ -574,15 +574,6 @@ body.crt .scanline {
     display: none;
 }
 
-.terminal-icon {
-    animation: blink 1s infinite;
-    color: var(--clr-primary-txt);
-    display: inline-block;
-    line-height: 1.1;
-    white-space: pre;
-    vertical-align: top;
-}
-
 /* ==========================================================================
    6. Timeline Component
    ========================================================================== */
