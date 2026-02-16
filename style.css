@@ -575,6 +575,7 @@ body.crt .scanline {
 .ascii-container {
     position: relative;
     display: inline-block;
+    cursor: crosshair;
 }
 
 .ascii-banner {
@@ -779,13 +780,14 @@ a.skill-item {
     border: 1px solid var(--clr-border);
     text-decoration: none;
     color: var(--clr-primary-txt);
-    transition: border-color 0.2s, transform 0.2s;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     position: relative;
 }
 
 .experiment-card:hover {
     border-color: var(--clr-blue);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.15);
 }
 
 .experiment-title {
@@ -810,12 +812,12 @@ a.skill-item {
     object-position: top left;
     margin-bottom: 0.75rem;
     border: 1px solid var(--clr-border);
-    opacity: 0.85;
-    transition: opacity 0.2s;
+    filter: grayscale(0.6) brightness(0.9);
+    transition: filter 0.3s;
 }
 
 .experiment-card:hover .experiment-preview {
-    opacity: 1;
+    filter: grayscale(0) brightness(1);
 }
 
 /* ==========================================================================
