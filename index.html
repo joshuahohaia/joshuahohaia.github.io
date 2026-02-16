@@ -32,9 +32,12 @@
                         class="nav-social-link" title="LinkedIn">
                         <img src="img/icons8-linkedin-32.png" alt="LinkedIn" class="nav-social-icon">
                     </a>
-                    <div class="crt-control" title="Adjust CRT intensity">
-                        <label for="crt-intensity">CRT</label>
-                        <input type="range" id="crt-intensity" min="0" max="100" value="0" step="1">
+                    <div id="crt-switch-container" title="Toggle CRT Effect">
+                        <input type="checkbox" id="crt-switch-checkbox">
+                        <label class="crt-switch" for="crt-switch-checkbox">
+                            <span class="crt-off">[CRT]</span>
+                            <span class="crt-on">[CRT]</span>
+                        </label>
                     </div>
                     <div id="theme-switch-container" title="Toggle Light/Dark Theme">
                         <input type="checkbox" id="theme-switch-checkbox" checked>

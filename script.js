@@ -4,35 +4,35 @@ setTimeout(() => {
     if (content) content.classList.add('scrollable');
 }, 1800);
 
-const crtIntensitySlider = document.getElementById('crt-intensity');
+// CRT Toggle
+const crtSwitch = document.getElementById('crt-switch-checkbox');
 
-function updateCrtIntensity(intensity) {
-    const opacity = intensity / 100;
-    const scaledOpacity = opacity * 0.8;
-
-    document.documentElement.style.setProperty('--crt-opacity', scaledOpacity);
-
-    if (intensity > 0) {
+function setCrtEnabled(enabled, animate = false) {
+    if (enabled) {
+        document.documentElement.style.setProperty('--crt-opacity', 0.4);
         document.body.classList.add('crt');
+        crtSwitch.checked = true;
+        // Trigger ASCII scramble animation
+        if (animate && typeof AsciiScramble !== 'undefined') {
+            AsciiScramble.triggerScramble();
+        }
     } else {
+        document.documentElement.style.setProperty('--crt-opacity', 0);
         document.body.classList.remove('crt');
+        crtSwitch.checked = false;
     }
-
-    localStorage.setItem('crt-intensity', intensity);
+    localStorage.setItem('crt-enabled', enabled);
 }
 
-const savedIntensity = localStorage.getItem('crt-intensity');
-if (savedIntensity !== null) {
-    crtIntensitySlider.value = savedIntensity;
-    updateCrtIntensity(savedIntensity);
+const savedCrt = localStorage.getItem('crt-enabled');
+if (savedCrt === 'true') {
+    setCrtEnabled(true);
 } else {
-    const defaultIntensity = 5;
-    crtIntensitySlider.value = defaultIntensity;
-    updateCrtIntensity(defaultIntensity);
+    setCrtEnabled(false);
 }
 
-crtIntensitySlider.addEventListener('input', (e) => {
-    updateCrtIntensity(e.target.value);
+crtSwitch.addEventListener('change', (e) => {
+    setCrtEnabled(e.target.checked, true);
 });
 
 const themeSwitch = document.getElementById('theme-switch-checkbox');
@@ -402,6 +402,30 @@ const AsciiScramble = {
         }
 
         data.node.textContent = lines.join('\n');
+    },
+
+    // Trigger a full scramble animation (used for CRT toggle)
+    triggerScramble() {
+        this.containers.forEach(container => {
+            if (getComputedStyle(container).display === 'none') return;
+
+            const data = this.originalTexts.get(container);
+            if (!data) return;
+
+            // Scramble all non-whitespace characters
+            const { charGrid, scrambleGrid } = data;
+            for (let row = 0; row < charGrid.length; row++) {
+                for (let col = 0; col < charGrid[row].length; col++) {
+                    const char = charGrid[row][col];
+                    if (char !== ' ' && char !== '\n' && char !== '\r') {
+                        scrambleGrid[row][col] = true;
+                    }
+                }
+            }
+
+            // Start animation to decode
+            this.startAnimation(container);
+        });
     }
 };
 
