@@ -43,6 +43,7 @@ body {
     background-color: var(--clr-primary-bg);
     color: var(--clr-primary-txt);
     font-family: "Fira Mono", monospace, sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ==========================================================================
@@ -52,6 +53,7 @@ body {
     margin: 0;
     line-height: 1.35rem;
     word-break: break-word;
+    transition: color 0.4s ease;
 }
 
 .text-output a {
@@ -66,10 +68,12 @@ body {
 
 .text-blue {
     color: var(--clr-blue);
+    transition: color 0.4s ease;
 }
 
 .text-orange {
     color: var(--clr-orange);
+    transition: color 0.4s ease;
 }
 
 .blink {
@@ -123,6 +127,7 @@ body {
     height: 95%;
     display: flex;
     flex-direction: column;
+    transition: background 0.4s ease;
 }
 
 /* Border Drawing Animation */
@@ -130,6 +135,7 @@ body {
     position: absolute;
     background: var(--clr-border);
     z-index: 10;
+    transition: background 0.4s ease;
 }
 
 .border-top {
@@ -346,7 +352,7 @@ body {
         1px 1px rgba(255, 0, 255, var(--crt-opacity)),
         -1px -1px rgba(0, 255, 255, var(--crt-opacity));
     position: relative;
-    transition: text-shadow 0.15s ease-out;
+    transition: text-shadow 0.4s ease-out;
 }
 
 .crt:before,
@@ -363,15 +369,17 @@ body {
     left: 0;
     top: 0;
     z-index: 1;
-    transition: opacity 0.15s ease-out;
+    transition: opacity 0.4s ease-out;
 }
 
 body.crt {
     background-color: var(--clr-primary-bg);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body.crt[data-theme="dark"] {
     background-color: rgb(25, 25, 30);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .crt:before {
@@ -429,6 +437,7 @@ body.crt .scanline {
     align-items: center;
     border-bottom: 1px solid transparent;
     padding: 0 1rem;
+    transition: background-color 0.4s ease;
 }
 
 .tabs::after {
@@ -440,6 +449,7 @@ body.crt .scanline {
     width: 0;
     background: var(--clr-border);
     animation: draw-horizontal 0.3s ease-out 1.7s forwards;
+    transition: background 0.4s ease;
 }
 
 .nav-group-left,
@@ -456,6 +466,7 @@ body.crt .scanline {
     color: var(--clr-primary-txt);
     font-size: 1.1rem;
     font-weight: bold;
+    transition: color 0.4s ease;
 }
 
 /* CRT Toggle */
@@ -464,6 +475,7 @@ body.crt .scanline {
     align-items: center;
     font-size: 1rem;
     color: var(--clr-primary-txt);
+    transition: color 0.4s ease;
     height: 32px;
     z-index: 1;
 }
@@ -515,6 +527,7 @@ body.crt .scanline {
     height: 32px;
     z-index: 1;
     margin-left: auto;
+    transition: color 0.4s ease;
 }
 
 #theme-switch-checkbox {
