@@ -794,14 +794,13 @@ a.skill-item {
     border: 1px solid var(--clr-border);
     text-decoration: none;
     color: var(--clr-primary-txt);
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, transform 0.2s;
     position: relative;
 }
 
 .experiment-card:hover {
     border-color: var(--clr-blue);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.15);
 }
 
 .experiment-title {
