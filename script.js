@@ -433,3 +433,17 @@ const AsciiScramble = {
 setTimeout(() => {
     AsciiScramble.init();
 }, 2000);
+
+// Experiment video hover play/reset
+document.querySelectorAll('.experiment-card').forEach(card => {
+    const video = card.querySelector('video.experiment-preview');
+    if (!video) return;
+
+    card.addEventListener('mouseenter', () => {
+        video.play().catch(() => {});
+    });
+
+    card.addEventListener('mouseleave', () => {
+        video.pause();
+    });
+});

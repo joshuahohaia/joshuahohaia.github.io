@@ -3,7 +3,7 @@ const timelineData = [
         title: "Frontend Developer @ Kato",
         date: "Sep 2024 - Dec 2025",
         location: "Soho, London",
-        logo: "img/kato_applogo.jpg",
+        logo: "media/kato_applogo.jpg",
         summary: "Delivered core features for a proptech startup, powering digital onboarding, lease management, and property workflows for commercial realestate agencies and landlords.",
         link: "https://www.kato.app/products/landlords",
         achievements: [
@@ -19,7 +19,7 @@ const timelineData = [
         title: "Software Developer @ Nodero",
         date: "Jul 2021 - Sep 2024",
         location: "New Zealand",
-        logo: "img/noderoLogo.webp",
+        logo: "media/noderoLogo.webp",
         summary: "Agency-based contract role delivering tailored software solutions across multiple industries, working across full-stack, frontend, and mobile projects with broad end-to-end exposure.",
         link: "https://www.nodero.com/",
         achievements: [],
