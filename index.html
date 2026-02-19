@@ -18,7 +18,7 @@
         <span class="border-line border-bottom"></span>
         <span class="border-line border-left"></span>
         <div class="main-inner">
-            <div class="scanline"></div>
+            <div class="scanline" aria-hidden="true"></div>
             <nav class="tabs">
                 <div class="nav-group-left">
                     <span class="nav-logo" title="Joshua Hohaia">&gt;_</span>
@@ -33,15 +33,15 @@
                         <img src="img/icons8-linkedin-32.png" alt="LinkedIn" class="nav-social-icon">
                     </a>
                     <div id="crt-switch-container" title="Toggle CRT Effect">
-                        <input type="checkbox" id="crt-switch-checkbox">
-                        <label class="crt-switch" for="crt-switch-checkbox">
+                        <input type="checkbox" id="crt-switch-checkbox" aria-label="Toggle CRT effect">
+                        <label class="crt-switch" for="crt-switch-checkbox" aria-hidden="true">
                             <span class="crt-off">[CRT]</span>
                             <span class="crt-on">[CRT]</span>
                         </label>
                     </div>
                     <div id="theme-switch-container" title="Toggle Light/Dark Theme">
-                        <input type="checkbox" id="theme-switch-checkbox" checked>
-                        <label class="theme-switch" for="theme-switch-checkbox">
+                        <input type="checkbox" id="theme-switch-checkbox" checked aria-label="Toggle light and dark theme">
+                        <label class="theme-switch" for="theme-switch-checkbox" aria-hidden="true">
                             <span class="light-mode">[◧]</span>
                             <span class="dark-mode">[◨]</span>
                         </label>
@@ -51,7 +51,7 @@
             <div class="content">
                 <div id="home" class="tab-content active">
                     <!-- Full ASCII -->
-                    <div class="ascii-container ascii-full">
+                    <div class="ascii-container ascii-full" aria-hidden="true">
                         <pre class="ascii-banner"><div class="ascii-line">   __            _                               _           _
    \ \  ___  ___| |__  _   _  __ _    /\  /\___ | |__   __ _(_) __ _
     \ \/ _ \/ __| '_ \| | | |/ _` |  / /_/ / _ \| '_ \ / _` | |/ _` |
@@ -60,7 +60,7 @@
                     </div>
 
                     <!-- Medium ASCII -->
-                    <div class="ascii-container ascii-medium">
+                    <div class="ascii-container ascii-medium" aria-hidden="true">
                         <pre class="ascii-banner"><div class="ascii-line">   __            _
    \ \  ___  ___| |__  _   _  __ _
     \ \/ _ \/ __| '_ \| | | |/ _` |
@@ -75,7 +75,7 @@
                     </div>
 
                     <!-- Small ASCII -->
-                    <div class="ascii-container ascii-small">
+                    <div class="ascii-container ascii-small" aria-hidden="true">
                         <pre class="ascii-banner"><div class="ascii-line">   __
    \ \  /\  /\
     \ \/ /_/ /
@@ -85,7 +85,7 @@
 
                     <!-- Text -->
                     <div class="text-container">
-                        <a href="https://github.com/joshuahohaia" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/joshuahohaia" target="_blank" rel="noopener noreferrer" aria-label="View Joshua Hohaia's GitHub profile">
                             <img src="https://avatars.githubusercontent.com/u/58153260?v=4" alt="Joshua Hohaia"
                                 class="profile-pic">
                         </a>
@@ -149,39 +149,39 @@
                     <div class="experiments-grid">
                         <a href="https://cataboxd.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="experiment-card">
-                            <img src="img/CATABOXD.png" alt="cataboxd preview" class="experiment-preview" loading="lazy">
+                            <img src="img/CATABOXD.png" alt="cataboxd preview" class="experiment-preview" loading="lazy" decoding="async">
                             <span class="experiment-title">cataboxd</span>
                             <p class="experiment-desc">A visual Letterboxd diary viewer that displays your watched films as a stack of 3D DVD cases.</p>
                         </a>
                         <a href="https://soundmapp.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="experiment-card">
-                            <img src="img/SOUNDMAP.png" alt="geo-music preview" class="experiment-preview" loading="lazy">
+                            <img src="img/SOUNDMAP.png" alt="geo-music preview" class="experiment-preview" loading="lazy" decoding="async">
                             <span class="experiment-title">geo-music</span>
                             <p class="experiment-desc">A music geography guessing game where players listen to 30-second song previews and guess the location on an interactive world map.</p>
                         </a>
                         <a href="https://image-tone.vercel.app" target="_blank" rel="noopener noreferrer"
                             class="experiment-card">
-                            <img src="img/IMAGE_TONE.png" alt="image-tone preview" class="experiment-preview" loading="lazy">
+                            <img src="img/IMAGE_TONE.png" alt="image-tone preview" class="experiment-preview" loading="lazy" decoding="async">
                             <span class="experiment-title">image-tone</span>
                             <p class="experiment-desc">Interactive web experiment that generates musical tones based on
                                 cursor position over hex codes in an image.</p>
                         </a>
                         <a href="https://openlibrary-search.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="experiment-card">
-                            <img src="img/BOOK-SEARCH.png" alt="openlibrary-search preview" class="experiment-preview" loading="lazy">
+                            <img src="img/BOOK-SEARCH.png" alt="openlibrary-search preview" class="experiment-preview" loading="lazy" decoding="async">
                             <span class="experiment-title">openlibrary-search</span>
                             <p class="experiment-desc">Responsive book discovery app with fast search and keyboard-first
                                 navigation, built with React and Redux Toolkit.</p>
                         </a>
                         <a href="https://trytagstats.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="experiment-card">
-                            <img src="img/TAG-STATS.png" alt="try-tag-stats preview" class="experiment-preview" loading="lazy">
+                            <img src="img/TAG-STATS.png" alt="try-tag-stats preview" class="experiment-preview" loading="lazy" decoding="async">
                             <span class="experiment-title">try-tag-stats</span>
                             <p class="experiment-desc">Follow your Try Tag Rugby team fixtures, tables, and stats</p>
                         </a>
                         <a href="https://ceiling-grid-planner.vercel.app/" target="_blank" rel="noopener noreferrer"
                             class="experiment-card">
-                            <img src="img/CEILING-GRID.png" alt="ceiling-grid-planner preview" class="experiment-preview" loading="lazy">
+                            <img src="img/CEILING-GRID.png" alt="ceiling-grid-planner preview" class="experiment-preview" loading="lazy" decoding="async">
                             <span class="experiment-title">ceiling-grid-planner</span>
                             <p class="experiment-desc">A canvas-based ceiling grid editor supporting grid manipulation and component placement.</p>
                         </a>
@@ -205,60 +205,10 @@
                         </a>
                     </div>
                 </div>
-
-                <div id="contact" class="tab-content">
-
-
-                    <div id="game-container" class="retro-border"
-                        aria-label="Interactive game: Collect letters to spell Joshua. Use Space or Tap to jump."
-                        role="application">
-                        <div id="game-canvas" aria-hidden="true">
-                            <div id="player" class="game-entity"></div>
-                            <div id="game-start-overlay">
-                                <p>Collect letters to spell JOSHUA</p>
-
-                                <!-- Character Selector -->
-                                <div class="char-select-container">
-                                    <p style="font-size: 0.8rem; margin-bottom: 5px;">CHOOSE PLAYER</p>
-                                    <div class="char-select-row">
-                                        <button id="prev-char" class="retro-btn-small">&lt;</button>
-                                        <div id="char-preview" class="player-preview">🛸</div>
-                                        <button id="next-char" class="retro-btn-small">&gt;</button>
-                                    </div>
-                                    <input type="text" id="github-username-input" class="retro-input"
-                                        placeholder="GitHub Username" style="visibility: hidden;">
-                                </div>
-
-                                <button id="start-btn" class="retro-btn">PLAY</button>
-                            </div>
-                            <div id="game-message">
-                                <p id="game-message-text" class="blink">GAME OVER</p>
-                                <button id="restart-btn" class="retro-btn">TRY AGAIN</button>
-                            </div>
-                        </div>
-                        <div id="game-ui" aria-hidden="true">
-                            <p>Jump: [SPACE] or Tap</p>
-                            <p>COLLECT: <span id="letter-display">_ _ _ _ _ _</span></p>
-                        </div>
-                        <!-- Mobile Controls -->
-                        <div id="mobile-controls" style="display: none; justify-content: center; margin-top: 10px;"
-                            aria-hidden="true">
-                            <button id="mobile-jump-btn" class="retro-btn" style="width: 100%;">JUMP</button>
-                        </div>
-                    </div>
-                    <p class="text-output">
-                        <a href="mailto:joshua.hohaia@gmail.com" class="email-copy-link">joshua.hohaia@gmail.com</a>
-                        <br>GitHub: <a href="https://github.com/joshuahohaia" target="_blank"
-                            rel="noopener noreferrer">@joshuahohaia</a>
-                        <br>Linkedin: <a href="https://linkedin.com/in/joshuahohaia" target="_blank"
-                            rel="noopener noreferrer">@joshuahohaia</a>
-                    </p>
-                </div>
             </div>
         </div>
     </div>
     <script src="data.js"></script>
-    <script src="game.js"></script>
     <script src="script.js"></script>
 </body>
 

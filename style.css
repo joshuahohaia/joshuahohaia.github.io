@@ -76,43 +76,6 @@ body {
     transition: color 0.4s ease;
 }
 
-.blink {
-    animation: blink 1s infinite;
-    color: var(--clr-orange);
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: scale(1.2);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 /* ==========================================================================
    3. Layout & Global Components
    ========================================================================== */
@@ -202,7 +165,7 @@ body {
     overflow: hidden;
     position: relative;
     opacity: 0;
-    animation: fade-in 0.6s ease-out 0.8s forwards;
+    animation: fade-in 0.6s ease-out 1.5s forwards;
 }
 
 @keyframes fade-in {
@@ -301,10 +264,6 @@ body {
     margin-top: 0.5rem;
 }
 
-#contact {
-    display: none !important;
-}
-
 .text-container {
     flex-direction: row;
     display: flex;
@@ -318,9 +277,15 @@ body {
     cursor: pointer;
 }
 
-.profile-pic:hover {
+.profile-pic:hover,
+.profile-pic:focus-visible {
     filter: brightness(1.1);
     transition: filter 0.2s;
+}
+
+.profile-pic:focus-visible {
+    outline: 2px solid var(--clr-blue);
+    outline-offset: 2px;
 }
 
 /* Social Icons in Nav */
@@ -331,8 +296,14 @@ body {
     transition: opacity 0.2s;
 }
 
-.nav-social-link:hover {
+.nav-social-link:hover,
+.nav-social-link:focus-visible {
     opacity: 1;
+}
+
+.nav-social-link:focus-visible {
+    outline: 2px solid var(--clr-blue);
+    outline-offset: 2px;
 }
 
 .nav-social-icon {
@@ -342,7 +313,8 @@ body {
     transition: filter 0.2s;
 }
 
-.nav-social-link:hover .nav-social-icon {
+.nav-social-link:hover .nav-social-icon,
+.nav-social-link:focus-visible .nav-social-icon {
     filter: grayscale(0);
 }
 
@@ -492,8 +464,14 @@ body.crt .scanline {
     transition: opacity 0.2s;
 }
 
-.crt-switch:hover {
+.crt-switch:hover,
+.crt-switch:focus-visible {
     opacity: 0.8;
+}
+
+.crt-switch:focus-visible {
+    outline: 2px solid var(--clr-blue);
+    outline-offset: 2px;
 }
 
 #crt-switch-checkbox:checked+.crt-switch {
@@ -542,8 +520,14 @@ body.crt .scanline {
     transition: opacity 0.2s;
 }
 
-.theme-switch:hover {
+.theme-switch:hover,
+.theme-switch:focus-visible {
     opacity: 0.8;
+}
+
+.theme-switch:focus-visible {
+    outline: 2px solid var(--clr-blue);
+    outline-offset: 2px;
 }
 
 #theme-switch-checkbox:checked+.theme-switch {
@@ -697,9 +681,14 @@ body.crt .scanline {
     gap: 4px;
 }
 
-.timeline-link-tag:hover {
+.timeline-link-tag:hover,
+.timeline-link-tag:focus-visible {
     background-color: var(--clr-blue);
     color: var(--clr-primary-bg);
+}
+
+.timeline-link-tag:focus-visible {
+    outline: none;
 }
 
 .timeline-item-header:hover .timeline-item-title::before {
@@ -758,9 +747,14 @@ body.crt .scanline {
     transition: border-color 0.2s, color 0.2s;
 }
 
-.skill-item:hover {
+.skill-item:hover,
+.skill-item:focus-visible {
     border-color: var(--clr-blue);
     color: var(--clr-blue);
+}
+
+.skill-item:focus-visible {
+    outline: none;
 }
 
 .skill-item i {
@@ -769,7 +763,8 @@ body.crt .scanline {
     transition: opacity 0.2s;
 }
 
-.skill-item:hover i {
+.skill-item:hover i,
+.skill-item:focus-visible i {
     opacity: 1;
 }
 
@@ -798,9 +793,14 @@ a.skill-item {
     position: relative;
 }
 
-.experiment-card:hover {
+.experiment-card:hover,
+.experiment-card:focus-visible {
     border-color: var(--clr-blue);
     transform: translateY(-2px);
+}
+
+.experiment-card:focus-visible {
+    outline: none;
 }
 
 .experiment-title {
@@ -829,7 +829,8 @@ a.skill-item {
     transition: filter 0.3s;
 }
 
-.experiment-card:hover .experiment-preview {
+.experiment-card:hover .experiment-preview,
+.experiment-card:focus-visible .experiment-preview {
     filter: grayscale(0) brightness(1);
 }
 
@@ -853,9 +854,14 @@ a.skill-item {
     transition: border-color 0.2s, transform 0.2s;
 }
 
-.contact-item:hover {
+.contact-item:hover,
+.contact-item:focus-visible {
     border-color: var(--clr-blue);
     transform: translateX(4px);
+}
+
+.contact-item:focus-visible {
+    outline: none;
 }
 
 .contact-label {
@@ -876,7 +882,7 @@ a.skill-item {
 
     .contact-value {
         font-size: 0.9rem;
-        word-break: break-all;
+        word-break: break-word;
     }
 }
 
@@ -898,187 +904,7 @@ a.skill-item {
 }
 
 /* ==========================================================================
-   7. Game Component
-   ========================================================================== */
-#game-container {
-    margin-top: 1.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    border: 1px solid var(--clr-border);
-    padding: 10px;
-    font-family: "Fira Mono", monospace;
-    position: relative;
-    width: 100%;
-}
-
-#game-canvas {
-    width: 100%;
-    height: 250px;
-    background-color: var(--clr-primary-bg);
-    border-bottom: 2px dashed var(--clr-border);
-    position: relative;
-    overflow: hidden;
-}
-
-#player {
-    width: 40px;
-    height: 40px;
-    background-color: var(--clr-blue);
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    transition: height 0.1s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    line-height: 1;
-    will-change: transform;
-}
-
-/* Character Selector */
-.char-select-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 0.5rem;
-    min-height: 70px;
-    /* Reduced to fit better */
-    justify-content: center;
-}
-
-.char-select-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.player-preview {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--clr-blue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    background-color: transparent;
-}
-
-.retro-input {
-    background: var(--clr-primary-bg);
-    border: 1px solid var(--clr-blue);
-    color: var(--clr-primary-txt);
-    font-family: "Fira Mono", monospace;
-    padding: 5px;
-    margin-top: 5px;
-    width: 150px;
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-.retro-input:focus {
-    outline: none;
-    border-color: var(--clr-orange);
-}
-
-.obstacle {
-    width: 20px;
-    height: 20px;
-    background-color: var(--clr-red, rgb(218, 49, 49));
-    position: absolute;
-    bottom: 0;
-    right: -30px;
-    will-change: transform;
-}
-
-#game-ui {
-    margin: 0.5rem 0.5rem 0rem 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    flex-wrap: wrap;
-}
-
-#game-message,
-#game-start-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0.8rem 1.5rem;
-    text-align: center;
-    width: 85%;
-    max-width: 300px;
-}
-
-#game-start-overlay p {
-    margin: 0 0 0.5rem 0;
-}
-
-#game-message {
-    display: none;
-}
-
-#game-start-overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.collectible {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    bottom: 0;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--clr-orange);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform;
-    transition: opacity 0.2s, transform 0.2s;
-}
-
-.retro-btn {
-    background: transparent;
-    border: 2px solid var(--clr-blue);
-    color: var(--clr-blue);
-    font-family: "Fira Mono", monospace;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    font-weight: bold;
-}
-
-.retro-btn-small {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
-    background: transparent;
-    border: 2px solid var(--clr-blue);
-    color: var(--clr-blue);
-    font-family: "Fira Mono", monospace;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.retro-btn:hover {
-    background: var(--clr-blue);
-    color: var(--clr-primary-bg);
-}
-
-.confetti-particle {
-    position: absolute;
-    user-select: none;
-    pointer-events: none;
-    z-index: 15;
-    font-weight: bold;
-    will-change: transform, opacity;
-}
-
-/* ==========================================================================
-   8. Media Queries
+   7. Media Queries
    ========================================================================== */
 @media (min-width: 565px) {
     .ascii-full {
@@ -1107,11 +933,5 @@ a.skill-item {
 
     .profile-pic {
         display: none;
-    }
-}
-
-@media (max-width: 600px) {
-    #mobile-controls {
-        display: flex !important;
     }
 }
