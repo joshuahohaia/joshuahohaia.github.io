@@ -434,11 +434,12 @@ setTimeout(() => {
     AsciiScramble.init();
 }, 2000);
 
-// Experiment video hover play/reset
+// Experiment video hover play/reset (desktop + mobile)
 document.querySelectorAll('.experiment-card').forEach(card => {
     const video = card.querySelector('video.experiment-preview');
     if (!video) return;
 
+    // Desktop
     card.addEventListener('mouseenter', () => {
         video.play().catch(() => {});
     });
@@ -446,6 +447,15 @@ document.querySelectorAll('.experiment-card').forEach(card => {
     card.addEventListener('mouseleave', () => {
         video.pause();
     });
+
+    // Mobile - play on touch, pause others
+    card.addEventListener('touchstart', () => {
+        // Pause all other videos
+        document.querySelectorAll('video.experiment-preview').forEach(v => {
+            if (v !== video) v.pause();
+        });
+        video.play().catch(() => {});
+    }, { passive: true });
 });
 
 // Experiment video fade-in on scroll + load
