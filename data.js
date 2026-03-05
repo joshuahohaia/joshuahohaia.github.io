@@ -1,14 +1,25 @@
 const timelineData = [
     {
+        title: "Software Engineer @ Birl",
+        date: "Mar 2026 - Present",
+        location: "London, UK",
+        logo: "media/birllogo.png",
+        locked: true,
+        summary: "Scaling a circular fashion platform that converts pre-owned items into instant credit for customers and sustainable growth for brands.",
+        link: "https://www.wearebirl.com/",
+        achievements: [],
+        skills: "Next.js, TypeScript, Node.js, Google Cloud Platform (GCP), Shopify"
+    },
+    {
         title: "Frontend Developer @ Kato",
         date: "Sep 2024 - Dec 2025",
-        location: "Soho, London",
+        location: "London, UK",
         logo: "media/kato_applogo.jpg",
-        summary: "Delivered core features for a proptech startup, powering digital onboarding, lease management, and property workflows for commercial realestate agencies and landlords.",
+        summary: "Engineered core workflows for a commercial real estate platform, powering digital onboarding, lease management, and deal-tracking for agents and landlords.",
         link: "https://www.kato.app/products/landlords",
         achievements: [
-            "Played a key role in the deals in progress initiative, helping drive a 20% increase in landlord signups and supporting long-term platform growth",
-            "Collaborated with product and design to deliver end-to-end features including workflow boards, agent interaction graphs, and landlord mapping tools",
+            "Developed \"Deals in Progress\" features, driving a 20% increase in landlord signups",
+            "Collaborated with product, design and stakeholders to deliver end-to-end features",
             "Built real-time collaboration and deal-progress syncing with Pusher Channels and React Query",
             "Migrated key components from Angular to React, reducing legacy code usage from 45% to 15%",
             "Replaced Redux with TanStack Query to improve server-state management and improve caching"
@@ -20,7 +31,7 @@ const timelineData = [
         date: "Jul 2021 - Sep 2024",
         location: "New Zealand",
         logo: "media/noderoLogo.webp",
-        summary: "Agency-based contract role delivering tailored software solutions across multiple industries, working across full-stack, frontend, and mobile projects with broad end-to-end exposure.",
+        summary: "Delivered tailored software solutions for clients across various industries, addressing specific business needs through both subcontracted projects and in-house product development.",
         link: "https://www.nodero.com/",
         achievements: [],
         skills: "Node.js, TypeScript, React, Azure, AWS, Flutter, C#",
@@ -32,10 +43,10 @@ const timelineData = [
                 summary: "Delivered key features of FMG’s internal insurance recording system, optimised for field agents working in low-connectivity environments.",
                 link: "https://www.nodero.com/fmg",
                 achievements: [
+                    "UI component development and testing using Storybook as the primary QA tool",
                     "Offline-first data capture with reliable syncing in low-connectivity environments",
                     "Integrations with Guidewire to support policy and claims workflows",
                     "Collaborative feature refinement with business analysts",
-                    "UI component development and testing using Storybook as the primary QA tool",
                     "Performance optimisation for on-site devices and unstable networks"
                 ],
                 skills: "Next.js, TypeScript, Node.js, Progressive Web Applications (PWAs), Storybook"
@@ -58,14 +69,14 @@ const timelineData = [
                 title: "Software Developer @ Massey University",
                 date: "Jun 2023 - Nov 2023",
                 location: "New Zealand",
-                summary: "Developed and deployed a cross-platform Flutter mobile application under tight semester-start deadlines, giving students fast access to essential orientation week features.",
+                summary: "End-to-end development of a cross-platform Flutter mobile application for student activities and campus information",
                 link: "https://apps.apple.com/nz/app/massey-uni/id772415885",
                 achievements: [
-                    "Delivered end-to-end in a compressed timeline, ensuring readiness for the semester launch",
-                    "Implemented key features such as event schedules, campus information, and student resources",
-                    "Optimised for both iOS and Android with consistent UI and smooth performance",
-                    "Collaborated closely with university stakeholders to refine requirements and prioritise features",
-                    "Ensured reliability and quick iteration through effective use of Flutter’s widget testing and hot-reload workflow"
+                    "Delivered the application under a compressed timeline to meet semester launch deadlines",
+                    "Built features including timetables, key amenities maps and essential student information cards",
+                    "Optimised for both iOS and Android with a consistent UI and smooth, reliable performance",
+                    "Worked closely with stakeholders to refine requirements, prioritise features, and iterate quickly",
+                    "Ensured stability and rapid delivery through use of Flutter’s hot reload workflow and testing"
                 ],
                 skills: "Flutter, Dart, Firebase, Application Deployment, Google Analytics, AngularJS, C#"
             },
@@ -77,7 +88,7 @@ const timelineData = [
                 link: "https://passport.world.rugby/player-welfare-medical/concussion-management-for-match-day-medical-staff-using-the-hia-protocol/hia-app-scrm",
                 achievements: [
                     "Ensured high reliability and performance during critical operations",
-                    "Worked cross-functionally to refine requirements and deliver production--ready UI/UX",
+                    "Worked cross-functionally to refine requirements and deliver production-ready UI/UX",
                     "Implemented core player-tracking and assessment workflows",
                     "Integrated robust security measures (MFA, biometrics, data encryption) for GDPR compliance"
                 ],
