@@ -1,7 +1,7 @@
 const timelineData = [
     {
         title: "Software Engineer @ Birl",
-        date: "Mar 2026 - Present",
+        date: "Feb 2026 - Present",
         location: "London, UK",
         logo: "media/birllogo.png",
         locked: true,
