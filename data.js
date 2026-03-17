@@ -5,7 +5,7 @@ const timelineData = [
         location: "London, UK",
         logo: "media/birllogo.png",
         locked: true,
-        summary: "Scaling a circular fashion platform that converts pre-owned items into instant credit for customers and sustainable growth for brands.",
+        summary: "Scaling a circular fashion platform designed to help brands reclaim value from returns and excess inventory. I am focused on the technical pipelines and AI-driven image processing tools that automate the inventory recovery and resale lifecycle.",
         link: "https://www.wearebirl.com/",
         achievements: [],
         skills: "Next.js, TypeScript, Node.js, Google Cloud Platform (GCP), Shopify"
