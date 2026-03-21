@@ -5,7 +5,7 @@ const timelineData = [
         location: "London, UK",
         logo: "media/birllogo.png",
         locked: true,
-        summary: "Scaling a circular fashion platform designed to help brands reclaim value from returns and excess inventory. I am focused on the technical pipelines and AI-driven image processing tools that automate the inventory recovery and resale lifecycle.",
+        summary: "Scaling a circular fashion platform designed to help brands reclaim value from returns and excess inventory.",
         link: "https://www.wearebirl.com/",
         achievements: [],
         skills: "Next.js, TypeScript, Node.js, Google Cloud Platform (GCP), Shopify"
@@ -40,7 +40,7 @@ const timelineData = [
                 title: "Frontend Developer @ FMG (Farmers Mutual Group)",
                 date: "Feb 2024 - Aug 2024",
                 location: "New Zealand",
-                summary: "Delivered key features of FMG’s internal insurance recording system, optimised for field agents working in low-connectivity environments.",
+                summary: "Delivered key features of FMG's internal insurance recording system, optimised for field agents working in low-connectivity environments.",
                 link: "https://www.nodero.com/fmg",
                 achievements: [
                     "UI component development and testing using Storybook as the primary QA tool",

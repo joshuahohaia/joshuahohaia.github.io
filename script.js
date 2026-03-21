@@ -4,6 +4,83 @@ setTimeout(() => {
     if (content) content.classList.add('scrollable');
 }, 1800);
 
+// CRT Sound Engine (Web Audio API)
+const CRTSounds = {
+    audioCtx: null,
+    isInitialized: false,
+    crtEnabled: false,
+
+    init() {
+        if (this.isInitialized) return;
+        try {
+            this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            this.isInitialized = true;
+        } catch (e) {
+            console.warn('Web Audio API not supported');
+        }
+    },
+
+    playPowerOn() {
+        if (!this.crtEnabled) return;
+        this.init();
+        if (!this.audioCtx) return;
+        if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+        const now = this.audioCtx.currentTime;
+        
+        // Mechanical Chunk
+        const chunkOsc = this.audioCtx.createOscillator();
+        const chunkGain = this.audioCtx.createGain();
+        chunkOsc.type = 'square';
+        chunkOsc.frequency.setValueAtTime(60, now);
+        chunkOsc.frequency.exponentialRampToValueAtTime(30, now + 0.1);
+        
+        chunkGain.gain.setValueAtTime(0.3, now);
+        chunkGain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+        
+        chunkOsc.connect(chunkGain);
+        chunkGain.connect(this.audioCtx.destination);
+        
+        chunkOsc.start(now);
+        chunkOsc.stop(now + 0.15);
+
+        // High-pitched Whine
+        const whineOsc = this.audioCtx.createOscillator();
+        const whineGain = this.audioCtx.createGain();
+        whineOsc.type = 'sine';
+        whineOsc.frequency.setValueAtTime(15500, now);
+        
+        whineGain.gain.setValueAtTime(0, now);
+        whineGain.gain.linearRampToValueAtTime(0.015, now + 0.05);
+        whineGain.gain.exponentialRampToValueAtTime(0.002, now + 2);
+        
+        whineOsc.connect(whineGain);
+        whineGain.connect(this.audioCtx.destination);
+        
+        whineOsc.start(now);
+        whineOsc.stop(now + 2);
+    },
+
+    playPowerOff() {
+        if (!this.isInitialized || !this.audioCtx) return;
+        const now = this.audioCtx.currentTime;
+        
+        const clickOsc = this.audioCtx.createOscillator();
+        const clickGain = this.audioCtx.createGain();
+        clickOsc.type = 'square';
+        clickOsc.frequency.setValueAtTime(80, now);
+        
+        clickGain.gain.setValueAtTime(0.2, now);
+        clickGain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+        
+        clickOsc.connect(clickGain);
+        clickGain.connect(this.audioCtx.destination);
+        
+        clickOsc.start(now);
+        clickOsc.stop(now + 0.05);
+    }
+};
+
 // CRT Toggle
 const crtSwitch = document.getElementById('crt-switch-checkbox');
 
@@ -12,14 +89,34 @@ function setCrtEnabled(enabled, animate = false) {
         document.documentElement.style.setProperty('--crt-opacity', 0.4);
         document.body.classList.add('crt');
         crtSwitch.checked = true;
-        // Trigger ASCII scramble animation
+        CRTSounds.crtEnabled = true;
         if (animate && typeof AsciiScramble !== 'undefined') {
             AsciiScramble.triggerScramble();
+        }
+        if (animate) {
+            CRTSounds.playPowerOn();
+        } else {
+            const startOnInteraction = () => {
+                if (CRTSounds.crtEnabled) {
+                    CRTSounds.init();
+                    if (CRTSounds.audioCtx && CRTSounds.audioCtx.state === 'suspended') {
+                        CRTSounds.audioCtx.resume();
+                    }
+                }
+                document.removeEventListener('click', startOnInteraction);
+                document.removeEventListener('keydown', startOnInteraction);
+            };
+            document.addEventListener('click', startOnInteraction);
+            document.addEventListener('keydown', startOnInteraction);
         }
     } else {
         document.documentElement.style.setProperty('--crt-opacity', 0);
         document.body.classList.remove('crt');
         crtSwitch.checked = false;
+        CRTSounds.crtEnabled = false;
+        if (animate) {
+            CRTSounds.playPowerOff();
+        }
     }
     localStorage.setItem('crt-enabled', enabled);
 }
@@ -197,19 +294,6 @@ timelineItems.forEach(item => {
         }
     });
 });
-
-// Auto-expand the first timeline item if there is sufficient vertical space
-// const contentContainer = document.querySelector('.content');
-// if (contentContainer && contentContainer.clientHeight > 800) {
-//     const firstHeader = document.querySelector('.timeline-item-header');
-//     if (firstHeader) {
-//         const body = firstHeader.nextElementSibling;
-//         if (body) {
-//             firstHeader.classList.add('open');
-//             body.style.maxHeight = "none";
-//         }
-//     }
-// }
 
 // Hide nav social icons when contact section is in view
 const contactSection = document.getElementById('contact-section');
