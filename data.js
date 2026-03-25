@@ -5,9 +5,15 @@ const timelineData = [
         location: "London, UK",
         logo: "media/birllogo.png",
         locked: true,
-        summary: "Scaling a circular fashion platform designed to help brands reclaim value from returns and excess inventory.",
+        summary: "Scaling a circular fashion platform that helps brands recover value from returned, damaged, and excess stock. Brought on to architect the technical pipelines that automate the inventory recovery lifecycle.",
         link: "https://www.wearebirl.com/",
-        achievements: [],
+        achievements: [
+            "Engineering the Resale Studio application used by warehouse teams to capture and sync product",
+            "Refining the Birl dashboard to automate the matching of studio imagery to third-party vendor stock",
+            "Developing and maintaining third party integrations across eBay, Vinted, and Shopify",
+            "Migrating the codebase into a unified monorepo to improve deployment reliability and team velocity",
+            "Standardised engineering practices by implementing automated PR templates and GitHub pipelines"
+        ],
         skills: "Next.js, TypeScript, Node.js, Google Cloud Platform (GCP), Shopify"
     },
     {
