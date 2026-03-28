@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="style.css">
+    <script data-goatcounter="https://joshuahohaia.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </head>
 
 <body>
@@ -227,6 +229,73 @@
     </div>
     <script src="data.js"></script>
     <script src="script.js"></script>
+    <script>
+    // GoatCounter Event Tracking
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!window.goatcounter) return;
+
+        // Track outbound links
+        document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+            link.addEventListener('click', function() {
+                goatcounter.count({
+                    path: 'click/outbound/' + this.hostname,
+                    title: this.title || this.textContent.trim().substring(0, 30),
+                    event: true
+                });
+            });
+        });
+
+        // Track timeline item expansions
+        document.querySelectorAll('.timeline-item-header').forEach(function(header) {
+            header.addEventListener('click', function() {
+                if (!this.classList.contains('open')) {
+                    const title = this.querySelector('.timeline-item-title');
+                    goatcounter.count({
+                        path: 'click/timeline/' + (title ? title.textContent.trim() : 'unknown'),
+                        title: 'Expanded: ' + (title ? title.textContent.trim() : 'Timeline Item'),
+                        event: true
+                    });
+                }
+            });
+        });
+
+        // Track CRT toggle
+        const crtToggle = document.getElementById('crt-switch-checkbox');
+        if (crtToggle) {
+            crtToggle.addEventListener('change', function() {
+                goatcounter.count({
+                    path: 'toggle/crt/' + (this.checked ? 'on' : 'off'),
+                    title: 'CRT ' + (this.checked ? 'Enabled' : 'Disabled'),
+                    event: true
+                });
+            });
+        }
+
+        // Track theme toggle
+        const themeToggle = document.getElementById('theme-switch-checkbox');
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function() {
+                goatcounter.count({
+                    path: 'toggle/theme/' + (this.checked ? 'dark' : 'light'),
+                    title: 'Theme: ' + (this.checked ? 'Dark' : 'Light'),
+                    event: true
+                });
+            });
+        }
+
+        // Track experiment card clicks
+        document.querySelectorAll('.experiment-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('h4, h3, .experiment-title');
+                goatcounter.count({
+                    path: 'click/experiment/' + (title ? title.textContent.trim() : 'unknown'),
+                    title: 'Viewed: ' + (title ? title.textContent.trim() : 'Experiment'),
+                    event: true
+                });
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
