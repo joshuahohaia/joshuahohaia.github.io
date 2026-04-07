@@ -621,13 +621,6 @@ body.crt .scanline {
     height: 50px;
     object-fit: cover;
     border-radius: 4px;
-    filter: sepia(0.2) grayscale(0.1);
-    transition: filter 0.2s;
-}
-
-.timeline-item-header:hover .timeline-logo,
-.timeline-item-header.open .timeline-logo {
-    filter: none;
 }
 
 .timeline-header-info {
