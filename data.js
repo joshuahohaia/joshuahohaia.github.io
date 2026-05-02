@@ -1,18 +1,27 @@
 const timelineData = [
     {
+        title: "Software Engineer @ Taxfix",
+        date: "May 2026 - Present",
+        location: "London, UK",
+        logo: "media/taxfix.webp",
+        summary: "Developing digital solutions to simplify tax filing and compliance for self employed individuals and smalls businesses.", link: "https://taxfix.com/en-gb/",
+        achievements: [],
+        skills: "React, TypeScript, C#"
+    },
+    {
         title: "Software Engineer @ Birl",
-        date: "Feb 2026 - Present",
+        date: "Feb 2026 - May 2026",
         location: "London, UK",
         logo: "media/birllogo.png",
         locked: true,
-        summary: "Scaling a circular fashion platform that helps brands recover value from returned, damaged, and excess stock. Brought on to architect the technical pipelines that automate the inventory recovery lifecycle.",
+        summary: "Scaled core technical pipelines for a circular fashion platform, automating how brands process and recover value from returned or excess inventory.",
         link: "https://www.wearebirl.com/",
         achievements: [
-            "Engineering the Resale Studio application used by warehouse teams to capture and sync product",
-            "Refining the Birl dashboard to automate the matching of studio imagery to third-party vendor stock",
-            "Developing and maintaining third party integrations across eBay, Vinted, and Shopify",
-            "Migrating the codebase into a unified monorepo to improve deployment reliability and team velocity",
-            "Standardised engineering practices by implementing automated PR templates and GitHub pipelines"
+            "Developed and maintained third party integrations across eBay, Vinted, and Shopify",
+            "Standardised engineering practices by implementing automated PR templates and GitHub pipelines",
+            "Engineered resale studio features used by warehouse teams to capture and sync product data",
+            "Refined the Birl dashboard to automate the matching of studio imagery to third-party vendor stock",
+            "Migrated the codebase into a unified monorepo to improve deployment reliability and team velocity"
         ],
         skills: "Next.js, TypeScript, Node.js, Google Cloud Platform (GCP), Shopify"
     },
