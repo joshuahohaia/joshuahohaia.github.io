@@ -178,7 +178,13 @@ function createTimelineItem(data) {
     if (data.logo) {
         headerContent += `
             <div class="timeline-header-top">
-                <img src="${data.logo}" alt="${data.title} Logo" class="timeline-logo">
+                <div class="timeline-logo-wrapper">
+                    <img src="${data.logo}" 
+                         alt="${data.title} Logo" 
+                         class="timeline-logo" 
+                         loading="lazy"
+                         onload="this.classList.add('loaded'); this.parentElement.classList.add('image-loaded')">
+                </div>
                 <div class="timeline-header-info">
                     <h3 class="timeline-item-title">${data.title}</h3>
                     <span class="timeline-item-date">${data.date}</span>

@@ -275,12 +275,13 @@ body {
     height: 65px;
     border-radius: 50%;
     cursor: pointer;
+    background-color: var(--clr-border);
+    opacity: 0;
+    transition: filter 0.2s, opacity 0.3s ease-in;
 }
 
-.profile-pic:hover,
-.profile-pic:focus-visible {
-    filter: brightness(1.1);
-    transition: filter 0.2s;
+.profile-pic.loaded {
+    opacity: 1;
 }
 
 .profile-pic:focus-visible {
@@ -616,11 +617,63 @@ body.crt .scanline {
     color: var(--clr-orange);
 }
 
-.timeline-logo {
+.timeline-logo-wrapper {
     width: 50px;
     height: 50px;
-    object-fit: cover;
+    flex-shrink: 0;
     border-radius: 4px;
+    background-color: var(--clr-border);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.4s ease;
+}
+
+.timeline-logo-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.08) 50%,
+            transparent 100%);
+    animation: shimmer 1.5s infinite;
+}
+
+[data-theme="dark"] .timeline-logo-wrapper::after {
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%);
+}
+
+.timeline-logo-wrapper.image-loaded::after {
+    display: none;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.timeline-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.timeline-logo.loaded {
+    opacity: 1;
 }
 
 .timeline-header-info {
