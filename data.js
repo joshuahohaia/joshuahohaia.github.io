@@ -4,7 +4,7 @@ const timelineData = [
         date: "May 2026 - Present",
         location: "London, UK",
         logo: "media/taxfix.webp",
-        summary: "Developing digital solutions to simplify tax filing and compliance for self employed individuals and smalls businesses.", link: "https://taxfix.com/en-gb/",
+        summary: "Developing digital solutions to simplify tax filing and compliance for self employed individuals and small businesses.", link: "https://taxfix.com/en-gb/",
         achievements: [],
         skills: "React, TypeScript, C#"
     },
