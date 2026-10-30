@@ -271,35 +271,10 @@ if (typeof timelineData !== 'undefined' && timelineContainer) {
     });
 }
 
-// Timeline expansion logic
-const timelineItems = document.querySelectorAll('.timeline-item-header');
-
-timelineItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const body = item.nextElementSibling;
-
-        if (item.classList.contains('open')) {
-            // CLOSING
-            body.style.maxHeight = body.scrollHeight + "px";
-            void body.offsetHeight;
-            requestAnimationFrame(() => {
-                body.style.maxHeight = null;
-                item.classList.remove('open');
-            });
-        } else {
-            // OPENING
-            item.classList.add('open');
-            body.style.maxHeight = body.scrollHeight + "px";
-            body.addEventListener('transitionend', function onEnd() {
-                if (item.classList.contains('open')) {
-                    body.style.maxHeight = "none";
-                }
-                body.removeEventListener('transitionend', onEnd);
-            }, { once: true });
-        }
-    });
-});
+// Timeline expansion logic (click, keyboard and ARIA wiring live in timeline.js)
+if (window.TimelineExpansion) {
+    window.TimelineExpansion.init();
+}
 
 // Hide nav social icons when contact section is in view
 const contactSection = document.getElementById('contact-section');
