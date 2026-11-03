@@ -526,17 +526,13 @@ document.querySelectorAll('.experiment-card').forEach(card => {
 // Experiment video fade-in on scroll + load
 const experimentVideos = document.querySelectorAll('video.experiment-preview');
 if (experimentVideos.length > 0) {
-    const showVideo = (video) => {
-        if (video.dataset.inView === 'true' && video.dataset.loaded === 'true') {
-            video.classList.add('visible');
-        }
-    };
-
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            entry.target.dataset.inView = entry.isIntersecting;
             if (entry.isIntersecting) {
-                showVideo(entry.target);
+                // Poster images render immediately; the video fades in behind
+                // them and keeps its hover/touch play behaviour.
+                entry.target.classList.add('visible');
+                videoObserver.unobserve(entry.target);
             }
         });
     }, {
@@ -544,18 +540,6 @@ if (experimentVideos.length > 0) {
     });
 
     experimentVideos.forEach(video => {
-        video.dataset.loaded = 'false';
-        video.dataset.inView = 'false';
-
-        if (video.readyState >= 2) {
-            video.dataset.loaded = 'true';
-        } else {
-            video.addEventListener('loadeddata', () => {
-                video.dataset.loaded = 'true';
-                showVideo(video);
-            }, { once: true });
-        }
-
         videoObserver.observe(video);
     });
 }
